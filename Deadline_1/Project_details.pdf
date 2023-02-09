@@ -1,0 +1,60 @@
+DataBase Management Project
+ONLINE RETAIL STORE
+Vartika IIITD Prakhar Gupta
+2021571 2021550
+Project Scope:
+An application for an online retail store where customers can purchase products of their
+need from the comfort of their homes. The application provides a complete interface for
+the users to choose products from all the available products. The user can then check
+amongst all the available items up for sale. Depending on the availability of any item,
+the user can decide to add a product to the cart. Once the user is ready for payment,
+the user can head for payment. It is assumed that the payment is made using the user's
+wallet, which is inbuilt into the application. It will be assumed that the user will have
+sufficient money to make the payments and has to authenticate again to confirm his
+purchase, after which the corresponding amount will be deducted from the wallet.
+Due to the large amount of data in the database and the constant changes made, it is
+possible to experience a few cases of exceptional behaviour where the database and
+the application are not synced. The data synchronisation issues we are planning to
+handle include saving the user's data in the database in real-time, flagging the products
+that are out of stock when required, and updating the user's wallet amount and the
+products' quantities after the purchase has been made.
+Functional Requirements:
+The user has to log into the application or create an account if the user does not have
+one. They can register using the phone number or email address. In this step, we will
+authenticate the customer and store their details in the database. All the products will be
+displayed, and if any product is out of stock, the same will be mentioned on the
+application. The company maintains the data of all the categories of products on sale,
+and each product can belong to only one category. Each user will have a different cart
+to add products of their choice. The products that are out of stock will not be added to
+the user's cart. Each user will be allotted a wallet for this application only, and the user
+can use the wallet to purchase items in the application. The increment in the wallet
+money will be initiated after a basic authentication of the user. The user can make
+payments only if the wallet has the required amount of money; else, the user will have
+to increase the wallet money. Once payment is initiated, the user's money will be
+deducted from the user's account, and the respective product quantity will be removed
+from the total amount. Frequent customers can upgrade their status to different kinds of
+membership. Membership will allow availing various discounts and offers on their
+orders.
+Technical Requirements:
+This project will require MySQL for creating database of customer details and product
+details.
+For Front-End part we will be using
+For Back-End part we will be using Django.
+Tech Stack:
+Front-End: HTML, CSS, JavaScript, React, Figma
+FTP Client: FileZilla
+Back-End: Django, MySQL
+Access Constraints:
+Customer entity : Attributes are name, address, email-id, contact number and shopping cart.
+Store Entity: Attributes are categories.
+Category Entity: Attributes are products.
+Product Entity: Attributes are product name, price, quantity available, and offers.
+The admin will the access to all the functionalities of the website
+Admin will add products to the store
+Customers can purchase products from the store.
+There can not exist a product without admin adding it.
+Customers can not add a product’s quantity more than available to cart.
+There can not be a product existing without a category.
+There can not exist any empty category.
+Customer can purchase a product only if he/she has sufficient amount in wallet.
+Customer can not add products to cart and money to wallet if verification is not done

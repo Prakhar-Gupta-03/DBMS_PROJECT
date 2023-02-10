@@ -44,3 +44,12 @@ create table customer(
     PRIMARY KEY (Customer_ID),
     FOREIGN KEY (Customer_Cart_ID) REFERENCES cart(Cart_ID)
 );
+
+create table order_details(
+    Order_ID INT NOT NULL AUTO_INCREMENT, 
+    Order_Date_Time DATETIME NOT NULL,
+    Delivery_Date_Time DATETIME NOT NULL,
+    Order_Customer_ID INT NOT NULL,
+    PRIMARY KEY (Order_ID),
+    FOREIGN KEY (Order_Customer_ID) REFERENCES customer(Customer_ID)
+);

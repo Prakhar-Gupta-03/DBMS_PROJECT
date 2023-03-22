@@ -90,3 +90,37 @@ CUSTOMER.Customer_Address_BuildingNo, CUSTOMER.Customer_Address_Street,
 CUSTOMER.Customer_Address_City, CUSTOMER.Customer_Address_State, Customer_Address_Pincode 
 FROM ORDERS INNER JOIN DELIVERY_MAN ON ORDERS.ORDER_ID = DELIVERY_MAN.ORDER_ID
 INNER JOIN CUSTOMER ON ORDERS.CUSTOMER_ID = CUSTOMER.CUSTOMER_ID
+
+-- trigger for when an order is placed 
+-- trigger calculates the total amount of the order and updates the customer wallet amount once the order is decided to be placed
+
+create trigger customer_wallet_update after insert on orders
+for each row
+begin
+update customer set customer_wallet = customer_wallet - new.order_amount where customer_id = new.customer_id;
+end;
+
+-- trigger to check if the customer has enough money in his wallet to place the order
+create trigger check_customer_wallet before insert on orders
+for each row
+begin
+if new.order_amount > (select customer_wallet from customer where customer_id = new.customer_id) then 
+signal sqlstate '45000' set message_text = 'Insufficient funds in wallet';
+end if;
+end;
+
+-- trigger to check if the product to be added in the cart has that available quantity in the database
+create trigger check_product_quantity before insert on cart
+for each row
+begin
+if new.product_quantity > (select product_quantity from product where product_id = new.product_id) then
+signal sqlstate '45000' set message_text = 'Insufficient quantity of product';
+end if;
+end;
+
+-- trigger to update the product quantity in the product table once the order is placed by getting the customer ID and then through the customer ID, get to the cart, and for the relevant cart items, update the product quantity in the product table
+create trigger update_product_quantity after insert on orders
+for each row
+begin
+update product set product_quantity = product_quantity - (select product_quantity from cart where customer_id = new.customer_id and product_id = cart.product_id) where product_id = cart.product_id;
+end;

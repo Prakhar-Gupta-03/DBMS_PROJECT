@@ -176,3 +176,12 @@ begin
         delete from product where category_id = old.category_id;
 end;
 
+-- trigger to be executed before a product is updated in the product table
+create trigger update_product before update on PRODUCT
+for each row
+begin
+        -- check if the product exists
+        if (select count(*) from product where product_id = new.product_id) = 0 then
+                signal sqlstate '45000' set message_text = 'Product does not exist';
+        end if;
+end;

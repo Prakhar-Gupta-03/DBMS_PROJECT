@@ -30,7 +30,7 @@ CREATE Table customer(
 );
 
 CREATE Table category(
-    Admin_ID INT NOT NULL,
+    Admin_ID INT,
     Foreign Key (Admin_ID) REFERENCES admin_shop(Admin_ID),
 
     Category_ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -43,7 +43,7 @@ CREATE TABLE product(
     product_price INT NOT NULL,
     product_quantity INT NOT NULL,
     Category_ID INT NOT NULL,
-    Admin_ID INT NOT NULL,
+    Admin_ID INT,
     Foreign Key (Admin_ID) REFERENCES admin_shop(Admin_ID),
     Foreign Key (Category_ID) REFERENCES category(Category_ID)       
 );
@@ -55,7 +55,7 @@ CREATE TABLE orders(
     Foreign Key (Customer_ID) REFERENCES customer(Customer_ID),
     order_DateTime DATETIME NOT NULL,
     order_amount INT NOT NULL DEFAULT 0,
-    Admin_ID INT NOT NULL DEFAULT 1,
+    Admin_ID INT,
     Foreign Key (Admin_ID) REFERENCES admin_shop(Admin_ID)
 );
 
@@ -76,7 +76,7 @@ CREATE Table delivery_man(
     man_contact VARCHAR(15) NOT NULL,
     man_email VARCHAR(50) NOT NULL,
     man_pass VARCHAR(20) NOT NULL,
-    Admin_ID INT NOT NULL,
+    Admin_ID INT,
     Foreign Key (Admin_ID) REFERENCES admin_shop(Admin_ID)
 );
 

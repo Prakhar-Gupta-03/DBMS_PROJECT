@@ -55,7 +55,7 @@ CREATE TABLE orders(
     Foreign Key (Customer_ID) REFERENCES customer(Customer_ID),
     order_DateTime DATETIME NOT NULL,
     order_amount INT NOT NULL DEFAULT 0,
-    Admin_ID INT NOT NULL,
+    Admin_ID INT NOT NULL DEFAULT 1,
     Foreign Key (Admin_ID) REFERENCES admin_shop(Admin_ID)
 );
 

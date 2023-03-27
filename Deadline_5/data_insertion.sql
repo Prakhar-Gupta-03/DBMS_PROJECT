@@ -1,9 +1,5 @@
 use test;
-
 -- Admin data entry
-
-
-
 insert into Admin_shop (Admin_name, Admin_Password) values ('Alasteir', 'h9XOSheQRP');
 insert into Admin_shop (Admin_name, Admin_Password) values ('Lia', 'v4g5wE');
 insert into Admin_shop (Admin_name, Admin_Password) values ('Harald', 'O5HimlduabV');
@@ -742,250 +738,367 @@ insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, 
 -- cart data insertion
 
 
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (68, 38, 20, 254, 31, 41);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (82, 89, 18, 302, 16, 88);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (42, 47, 15, 850, 69, 69);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (15, 85, 14, 50, 22, 77);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (33, 35, 25, 76, 5, 9);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (54, 24, 15, 317, 89, 30);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (56, 31, 13, 691, 98, 98);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (43, 100, 14, 774, 28, 79);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (22, 28, 20, 210, 53, 28);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (50, 79, 12, 337, 44, 23);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (6, 42, 21, 763, 70, 16);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (57, 37, 12, 191, 95, 88);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (29, 81, 11, 680, 14, 10);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (50, 93, 21, 599, 83, 5);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (86, 53, 14, 432, 49, 84);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (53, 1, 10, 121, 98, 43);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (29, 20, 22, 322, 69, 60);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (58, 55, 15, 702, 64, 35);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (55, 15, 21, 331, 8, 37);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (12, 2, 16, 968, 58, 6);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (22, 87, 16, 750, 26, 75);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (96, 13, 24, 1000, 93, 60);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (57, 100, 11, 879, 60, 16);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (42, 21, 22, 899, 97, 16);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (72, 34, 23, 218, 27, 95);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (95, 96, 24, 81, 65, 59);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (51, 48, 13, 705, 38, 6);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (82, 67, 10, 765, 35, 55);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (36, 57, 24, 172, 7, 38);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (2, 20, 22, 650, 65, 35);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (35, 98, 18, 358, 6, 9);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (98, 31, 17, 415, 74, 36);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (17, 53, 23, 912, 58, 59);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (58, 66, 23, 939, 31, 7);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (44, 38, 14, 940, 22, 37);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (51, 4, 16, 650, 49, 64);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (94, 51, 23, 796, 75, 53);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (49, 95, 21, 280, 85, 50);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (27, 6, 24, 750, 30, 19);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (13, 23, 14, 434, 51, 71);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (94, 52, 11, 979, 97, 91);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (80, 22, 23, 24, 10, 91);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (11, 67, 10, 920, 72, 80);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (97, 97, 13, 867, 48, 80);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (53, 5, 23, 453, 96, 88);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (71, 4, 20, 742, 53, 80);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (21, 56, 17, 134, 64, 7);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (84, 28, 13, 232, 30, 63);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (82, 58, 22, 928, 17, 84);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (54, 83, 15, 33, 18, 71);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (21, 13, 17, 934, 6, 59);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (100, 21, 14, 154, 89, 82);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (19, 30, 15, 687, 82, 98);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (61, 21, 21, 11, 90, 8);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (3, 26, 23, 562, 85, 94);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (62, 27, 16, 665, 30, 26);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (2, 94, 23, 983, 36, 48);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (19, 50, 18, 184, 47, 8);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (86, 32, 15, 836, 45, 54);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (79, 25, 18, 546, 28, 85);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (89, 49, 16, 638, 69, 54);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (38, 45, 19, 637, 3, 64);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (28, 27, 12, 603, 69, 89);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (72, 70, 21, 470, 6, 10);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (50, 70, 21, 163, 67, 14);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (69, 80, 18, 512, 91, 83);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (28, 34, 18, 91, 52, 31);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (62, 82, 14, 579, 3, 84);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (27, 53, 16, 400, 50, 6);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (54, 72, 15, 560, 30, 87);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (92, 14, 15, 939, 98, 40);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (20, 32, 20, 375, 31, 27);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (18, 40, 13, 413, 65, 52);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (43, 25, 13, 12, 22, 50);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (81, 68, 21, 299, 56, 95);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (48, 48, 10, 707, 26, 51);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (33, 65, 20, 668, 53, 22);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (48, 34, 17, 312, 34, 44);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (81, 92, 12, 491, 54, 24);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (1, 70, 18, 305, 40, 27);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (12, 75, 22, 312, 86, 36);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (7, 19, 15, 316, 52, 94);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (4, 43, 15, 486, 31, 67);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (67, 3, 12, 470, 92, 93);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (4, 72, 21, 746, 88, 17);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (55, 87, 23, 402, 73, 71);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (48, 33, 16, 57, 18, 47);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (57, 94, 22, 868, 93, 34);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (57, 45, 15, 51, 4, 57);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (86, 13, 25, 857, 55, 98);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (48, 24, 19, 961, 82, 9);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (92, 99, 22, 352, 28, 13);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (18, 16, 20, 914, 35, 6);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (8, 46, 15, 317, 15, 15);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (34, 21, 12, 30, 32, 8);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (21, 87, 13, 547, 81, 87);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (97, 8, 25, 990, 78, 17);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (28, 51, 23, 694, 32, 95);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (57, 27, 14, 20, 18, 1);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (38, 61, 10, 790, 51, 97);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (79, 67, 17, 105, 77, 25);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (80, 98, 13, 314, 68, 5);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (54, 58, 25, 708, 77, 15);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (70, 19, 20, 427, 23, 12);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (61, 29, 18, 232, 7, 9);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (10, 70, 16, 405, 74, 56);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (91, 95, 14, 778, 75, 79);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (40, 64, 14, 550, 14, 39);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (24, 46, 15, 131, 20, 51);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (71, 13, 12, 886, 33, 27);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (12, 82, 23, 277, 88, 49);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (39, 21, 14, 540, 33, 54);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (7, 52, 10, 643, 80, 52);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (14, 10, 25, 165, 39, 48);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (47, 44, 23, 79, 4, 98);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (98, 4, 16, 302, 44, 83);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (7, 11, 16, 491, 26, 6);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (63, 91, 13, 739, 51, 82);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (46, 25, 16, 976, 94, 64);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (45, 56, 22, 37, 40, 9);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (9, 44, 25, 924, 2, 43);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (27, 74, 11, 375, 79, 99);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (7, 89, 18, 407, 7, 61);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (15, 12, 11, 934, 12, 24);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (3, 5, 14, 264, 43, 61);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (100, 4, 11, 514, 32, 41);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (57, 64, 14, 904, 14, 93);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (61, 56, 10, 583, 63, 100);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (95, 15, 20, 397, 93, 4);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (62, 91, 23, 498, 27, 71);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (85, 27, 24, 675, 63, 17);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (65, 23, 20, 236, 29, 85);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (46, 37, 17, 971, 28, 33);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (40, 97, 24, 344, 14, 33);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (80, 17, 21, 149, 56, 68);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (67, 68, 22, 565, 91, 62);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (20, 44, 22, 915, 68, 92);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (27, 55, 14, 601, 47, 33);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (81, 86, 20, 226, 62, 1);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (40, 15, 10, 309, 23, 84);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (86, 92, 23, 73, 19, 7);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (50, 41, 18, 780, 98, 79);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (55, 74, 13, 188, 7, 45);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (31, 15, 19, 291, 34, 71);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (24, 100, 21, 770, 18, 72);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (84, 96, 10, 730, 7, 94);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (10, 93, 16, 755, 48, 100);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (64, 81, 16, 551, 52, 74);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (77, 23, 12, 169, 97, 52);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (25, 94, 25, 536, 46, 71);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (88, 46, 14, 172, 15, 85);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (18, 55, 25, 844, 100, 1);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (10, 53, 17, 978, 84, 18);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (56, 29, 16, 807, 47, 59);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (63, 17, 14, 408, 87, 7);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (52, 16, 13, 445, 29, 86);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (36, 53, 13, 94, 93, 87);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (4, 74, 14, 363, 57, 65);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (59, 20, 17, 633, 4, 54);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (59, 82, 16, 280, 30, 14);   
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (96, 90, 23, 190, 78, 49);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (67, 69, 21, 311, 71, 84);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (40, 67, 25, 111, 73, 44);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (72, 89, 19, 965, 51, 68);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (100, 14, 14, 266, 40, 54);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (54, 12, 21, 91, 25, 68);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (9, 38, 20, 231, 86, 78);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (52, 46, 15, 219, 18, 65);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (93, 41, 24, 943, 90, 4);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (29, 47, 10, 298, 27, 69);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (15, 59, 18, 704, 89, 91);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (96, 9, 12, 257, 76, 83);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (53, 91, 18, 797, 51, 50);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (64, 76, 22, 579, 46, 44);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (45, 35, 22, 216, 91, 40);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (70, 51, 19, 981, 90, 40);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (95, 17, 13, 654, 9, 32);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (32, 93, 19, 640, 28, 3);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (89, 36, 19, 296, 17, 65);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (72, 6, 10, 121, 93, 99);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (35, 71, 22, 279, 66, 99);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (18, 29, 16, 376, 38, 69);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (34, 29, 25, 530, 29, 26);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (45, 6, 19, 528, 98, 31);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (28, 95, 20, 33, 63, 49);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (87, 93, 15, 949, 20, 85);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (74, 69, 13, 61, 79, 55);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (1, 33, 23, 273, 82, 62);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (66, 23, 24, 754, 12, 72);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (83, 64, 16, 962, 54, 47);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (9, 90, 23, 57, 47, 73);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (94, 31, 21, 224, 24, 66);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (12, 98, 17, 252, 87, 36);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (54, 16, 16, 17, 49, 7);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (5, 30, 22, 572, 78, 63);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (28, 80, 24, 211, 80, 37);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (67, 66, 10, 388, 52, 12);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (66, 61, 18, 539, 95, 56);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (20, 68, 23, 958, 37, 94);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (7, 18, 18, 48, 98, 43);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (67, 15, 23, 626, 6, 67);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (18, 17, 10, 628, 82, 93);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (11, 39, 11, 518, 27, 93);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (41, 80, 15, 118, 41, 3);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (33, 25, 18, 89, 81, 63);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (41, 53, 18, 989, 93, 29);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (91, 82, 19, 782, 72, 91);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (93, 92, 12, 943, 49, 34);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (15, 43, 14, 868, 86, 4);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (74, 85, 17, 939, 29, 39);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (98, 72, 19, 70, 81, 43);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (31, 12, 16, 503, 32, 21);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (88, 40, 21, 168, 2, 39);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (12, 67, 14, 743, 59, 84);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (82, 83, 23, 726, 2, 63);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (1, 55, 20, 22, 79, 13);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (92, 94, 17, 18, 74, 40);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (71, 68, 13, 137, 62, 73);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (35, 33, 14, 712, 86, 74);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (21, 4, 15, 177, 79, 64);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (87, 87, 23, 22, 14, 90);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (68, 25, 17, 68, 42, 64);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (92, 74, 24, 773, 10, 83);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (26, 13, 10, 594, 63, 59);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (98, 48, 19, 875, 98, 50);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (31, 11, 23, 739, 38, 24);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (53, 60, 11, 489, 76, 97);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (86, 70, 21, 22, 30, 2);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (89, 47, 16, 323, 7, 51);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (82, 40, 11, 511, 21, 94);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (59, 64, 22, 392, 91, 39);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (45, 16, 11, 786, 60, 23);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (8, 94, 21, 392, 18, 82);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (93, 14, 22, 978, 37, 57);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (1, 43, 16, 652, 31, 8);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (98, 4, 23, 726, 6, 21);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (18, 72, 24, 428, 53, 66);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (43, 99, 22, 478, 76, 80);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (58, 98, 21, 670, 27, 36);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (27, 3, 20, 976, 56, 33);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (50, 45, 21, 927, 17, 26);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (79, 81, 12, 982, 90, 22);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (48, 19, 24, 579, 68, 90);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (36, 86, 12, 531, 6, 47);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (38, 44, 21, 434, 35, 41);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (99, 26, 13, 208, 8, 51);
-insert into cart (customer_ID, product_ID, product_quantity, product_price, order_ID, admin_ID) values (72, 1, 15, 146, 98, 86);
+INSERT INTO `cart` (`customer_id`,`product_id`,`product_quantity`)
+VALUES
+  (23,69,60),
+  (9,70,67),
+  (38,83,69),
+  (91,61,42),
+  (10,11,73),
+  (50,75,81),
+  (4,41,4),
+  (83,80,85),
+  (67,81,87),
+  (31,63,49);
+INSERT INTO `cart` (`customer_id`,`product_id`,`product_quantity`)
+VALUES
+  (61,54,87),
+  (55,21,8),
+  (16,74,10),
+  (16,40,54),
+  (62,75,30),
+  (60,61,85),
+  (59,4,95),
+  (73,84,13),
+  (10,9,71),
+  (34,33,63);
+INSERT INTO `cart` (`customer_id`,`product_id`,`product_quantity`)
+VALUES
+  (77,39,37),
+  (94,64,6),
+  (77,52,20),
+  (86,73,96),
+  (86,37,81),
+  (35,51,55),
+  (45,78,92),
+  (80,74,96),
+  (47,28,43),
+  (12,69,46);
+INSERT INTO `cart` (`customer_id`,`product_id`,`product_quantity`)
+VALUES
+  (58,57,2),
+  (48,96,79),
+  (72,70,58),
+  (60,18,95),
+  (20,44,93),
+  (35,95,15),
+  (94,30,85),
+  (41,78,62),
+  (20,24,42),
+  (44,90,84);
+INSERT INTO `cart` (`customer_id`,`product_id`,`product_quantity`)
+VALUES
+  (50,82,35),
+  (92,40,96),
+  (3,50,95),
+  (72,19,20),
+  (52,29,32),
+  (57,7,5),
+  (70,67,87),
+  (26,16,98),
+  (5,95,91),
+  (42,51,61);
+INSERT INTO `cart` (`customer_id`,`product_id`,`product_quantity`)
+VALUES
+  (23,48,84),
+  (35,77,91),
+  (64,13,30),
+  (7,70,40),
+  (87,4,21),
+  (49,30,70),
+  (0,59,59),
+  (37,61,34),
+  (17,5,97),
+  (17,87,9);
+INSERT INTO `cart` (`customer_id`,`product_id`,`product_quantity`)
+VALUES
+  (72,54,65),
+  (42,98,58),
+  (48,6,15),
+  (92,64,83),
+  (73,56,29),
+  (59,95,34),
+  (63,42,54),
+  (13,3,89),
+  (73,76,20),
+  (21,22,36);
+INSERT INTO `cart` (`customer_id`,`product_id`,`product_quantity`)
+VALUES
+  (79,25,67),
+  (32,18,81),
+  (75,54,1),
+  (11,51,51),
+  (40,6,35),
+  (92,63,77),
+  (31,31,10),
+  (48,10,31),
+  (97,55,87),
+  (46,15,72);
+INSERT INTO `cart` (`customer_id`,`product_id`,`product_quantity`)
+VALUES
+  (51,85,11),
+  (65,34,68),
+  (5,26,53),
+  (74,22,18),
+  (97,45,50),
+  (5,14,35),
+  (10,16,58),
+  (49,5,23),
+  (40,51,99),
+  (33,42,72);
+INSERT INTO `cart` (`customer_id`,`product_id`,`product_quantity`)
+VALUES
+  (15,80,16),
+  (29,87,20),
+  (31,92,82),
+  (79,30,13),
+  (59,41,20),
+  (33,81,28),
+  (5,92,9),
+  (75,66,54),
+  (33,23,80),
+  (54,51,38);
+  INSERT INTO `all_orders` (`customer_id`,`product_id`,`product_quantity`,`product_price`,`order_id`)
+VALUES
+  (14,40,88,421,17),
+  (57,94,38,685,3),
+  (31,35,84,769,86),
+  (25,78,52,212,10),
+  (61,9,30,896,24),
+  (84,24,13,473,67),
+  (63,52,80,353,90),
+  (68,82,1,495,28),
+  (99,99,65,298,41),
+  (5,49,16,937,90);
+INSERT INTO `all_orders` (`customer_id`,`product_id`,`product_quantity`,`product_price`,`order_id`)
+VALUES
+  (70,57,83,416,3),
+  (17,85,18,368,15),
+  (78,96,88,816,47),
+  (44,48,35,720,74),
+  (73,24,43,651,5),
+  (10,70,85,803,81),
+  (80,9,51,840,91),
+  (62,82,58,245,21),
+  (95,4,34,228,61),
+  (10,72,10,329,33);
+INSERT INTO `all_orders` (`customer_id`,`product_id`,`product_quantity`,`product_price`,`order_id`)
+VALUES
+  (12,43,33,719,9),
+  (41,26,21,56,89),
+  (92,45,76,633,79),
+  (10,80,27,33,99),
+  (7,99,95,263,64),
+  (66,44,8,465,13),
+  (4,90,67,24,60),
+  (95,11,15,538,44),
+  (25,43,32,233,4),
+  (20,43,75,273,77);
+INSERT INTO `all_orders` (`customer_id`,`product_id`,`product_quantity`,`product_price`,`order_id`)
+VALUES
+  (1,68,57,314,4),
+  (91,1,17,775,6),
+  (76,28,76,827,69),
+  (53,73,66,21,43),
+  (7,63,15,597,10),
+  (56,74,40,237,4),
+  (23,64,15,57,23),
+  (87,61,10,961,40),
+  (24,6,73,25,87),
+  (41,29,68,592,4);
+INSERT INTO `all_orders` (`customer_id`,`product_id`,`product_quantity`,`product_price`,`order_id`)
+VALUES
+  (19,27,40,687,19),
+  (75,77,45,913,6),
+  (79,30,95,711,52),
+  (19,59,78,572,80),
+  (50,74,46,365,74),
+  (31,33,60,907,28),
+  (94,100,31,895,42),
+  (27,8,60,890,58),
+  (48,67,43,800,52),
+  (31,53,72,772,33);
+INSERT INTO `all_orders` (`customer_id`,`product_id`,`product_quantity`,`product_price`,`order_id`)
+VALUES
+  (21,26,0,225,98),
+  (49,70,70,61,33),
+  (82,85,24,952,67),
+  (40,66,39,881,80),
+  (85,79,3,639,30),
+  (88,27,74,35,92),
+  (85,77,58,84,9),
+  (42,39,11,542,87),
+  (71,14,55,206,30),
+  (1,31,17,36,57);
+INSERT INTO `all_orders` (`customer_id`,`product_id`,`product_quantity`,`product_price`,`order_id`)
+VALUES
+  (25,32,16,448,26),
+  (68,91,15,665,73),
+  (34,51,35,735,78),
+  (71,97,7,682,96),
+  (55,16,82,451,49),
+  (4,13,15,814,4),
+  (58,84,24,987,36),
+  (10,1,19,876,41),
+  (15,82,53,695,4),
+  (62,12,66,630,22);
+INSERT INTO `all_orders` (`customer_id`,`product_id`,`product_quantity`,`product_price`,`order_id`)
+VALUES
+  (100,34,30,342,50),
+  (72,1,55,428,81),
+  (26,54,66,442,14),
+  (84,99,6,772,74),
+  (0,38,21,992,62),
+  (16,74,64,503,42),
+  (94,32,55,311,10),
+  (7,19,75,856,54),
+  (1,59,41,891,37),
+  (22,99,64,275,42);
+INSERT INTO `all_orders` (`customer_id`,`product_id`,`product_quantity`,`product_price`,`order_id`)
+VALUES
+  (16,74,13,232,81),
+  (1,82,41,905,94),
+  (80,81,95,334,62),
+  (87,89,60,923,85),
+  (51,99,60,821,88),
+  (23,7,50,589,19),
+  (77,16,77,536,18),
+  (99,52,86,587,67),
+  (45,4,32,86,100),
+  (1,28,16,833,33);
+INSERT INTO `all_orders` (`customer_id`,`product_id`,`product_quantity`,`product_price`,`order_id`)
+VALUES
+  (43,71,57,188,32),
+  (27,12,46,191,5),
+  (70,36,59,44,74),
+  (45,65,99,612,2),
+  (47,41,55,281,74),
+  (90,77,27,70,64),
+  (0,97,64,986,23),
+  (49,45,76,118,16),
+  (62,89,8,913,59),
+  (99,98,70,347,82);
+
+INSERT INTO `order_delivery_man` (`order_id`,`delivery_man_id`,`delivery_Dates`)
+VALUES
+  (41,13,"Jun 2, 2023"),
+  (64,68,"Jun 13, 2023"),
+  (5,45,"Sep 8, 2022"),
+  (55,30,"Apr 2, 2023"),
+  (73,63,"Nov 27, 2023"),
+  (82,2,"Mar 2, 2024"),
+  (90,97,"Jul 4, 2023"),
+  (87,100,"Jul 11, 2022"),
+  (61,51,"Jun 12, 2023"),
+  (28,30,"Mar 1, 2024");
+INSERT INTO `order_delivery_man` (`order_id`,`delivery_man_id`,`delivery_Dates`)
+VALUES
+  (44,81,"Jun 6, 2022"),
+  (69,87,"Jul 19, 2023"),
+  (48,58,"Nov 4, 2022"),
+  (54,11,"Jun 8, 2022"),
+  (13,34,"May 30, 2022"),
+  (14,23,"Apr 11, 2022"),
+  (35,69,"Jun 16, 2022"),
+  (48,52,"Mar 22, 2024"),
+  (99,74,"Aug 7, 2023"),
+  (28,11,"Apr 24, 2023");
+INSERT INTO `order_delivery_man` (`order_id`,`delivery_man_id`,`delivery_Dates`)
+VALUES
+  (12,26,"Jan 9, 2024"),
+  (28,65,"May 1, 2023"),
+  (9,46,"Jul 17, 2023"),
+  (42,28,"May 28, 2022"),
+  (40,82,"Feb 13, 2024"),
+  (15,72,"Aug 4, 2023"),
+  (83,38,"Sep 2, 2022"),
+  (51,15,"May 11, 2023"),
+  (21,52,"Oct 17, 2022"),
+  (96,49,"Sep 11, 2022");
+INSERT INTO `order_delivery_man` (`order_id`,`delivery_man_id`,`delivery_Dates`)
+VALUES
+  (100,53,"Aug 4, 2023"),
+  (42,2,"Jul 20, 2023"),
+  (64,66,"May 8, 2022"),
+  (68,14,"May 30, 2022"),
+  (45,63,"Nov 7, 2023"),
+  (57,7,"Jul 14, 2023"),
+  (70,75,"Feb 11, 2023"),
+  (35,60,"Oct 9, 2022"),
+  (53,33,"Mar 30, 2022"),
+  (92,2,"Mar 11, 2023");
+INSERT INTO `order_delivery_man` (`order_id`,`delivery_man_id`,`delivery_Dates`)
+VALUES
+  (2,18,"Oct 8, 2023"),
+  (36,36,"Dec 27, 2022"),
+  (13,19,"Apr 8, 2022"),
+  (22,58,"May 20, 2022"),
+  (26,22,"Dec 24, 2023"),
+  (70,39,"Mar 19, 2023"),
+  (95,51,"Mar 28, 2022"),
+  (27,16,"Sep 3, 2022"),
+  (50,5,"Aug 24, 2023"),
+  (42,32,"Nov 9, 2023");
+INSERT INTO `order_delivery_man` (`order_id`,`delivery_man_id`,`delivery_Dates`)
+VALUES
+  (53,91,"Mar 9, 2024"),
+  (75,64,"Mar 16, 2023"),
+  (6,44,"Jan 31, 2023"),
+  (5,95,"Oct 10, 2022"),
+  (29,77,"Mar 30, 2023"),
+  (63,78,"Dec 24, 2022"),
+  (80,32,"Jun 19, 2022"),
+  (60,72,"Dec 13, 2022"),
+  (76,30,"Mar 12, 2024"),
+  (34,2,"May 8, 2022");
+INSERT INTO `order_delivery_man` (`order_id`,`delivery_man_id`,`delivery_Dates`)
+VALUES
+  (8,9,"Oct 13, 2023"),
+  (44,14,"Nov 8, 2022"),
+  (41,97,"Jan 19, 2024"),
+  (98,96,"Sep 6, 2022"),
+  (7,37,"Oct 30, 2022"),
+  (92,90,"Jan 1, 2023"),
+  (22,1,"Jul 27, 2023"),
+  (59,8,"Feb 20, 2024"),
+  (83,51,"Nov 29, 2023"),
+  (83,85,"Jul 18, 2022");
+INSERT INTO `order_delivery_man` (`order_id`,`delivery_man_id`,`delivery_Dates`)
+VALUES
+  (35,74,"Apr 18, 2022"),
+  (35,81,"Nov 11, 2022"),
+  (39,29,"Mar 9, 2024"),
+  (37,28,"Mar 31, 2023"),
+  (16,96,"Jun 10, 2023"),
+  (65,31,"Apr 10, 2023"),
+  (52,51,"Dec 6, 2022"),
+  (62,41,"Dec 7, 2023"),
+  (95,83,"Jan 26, 2024"),
+  (57,69,"Sep 10, 2023");
+INSERT INTO `order_delivery_man` (`order_id`,`delivery_man_id`,`delivery_Dates`)
+VALUES
+  (19,28,"Aug 6, 2023"),
+  (57,78,"Jan 17, 2023"),
+  (33,48,"Nov 2, 2023"),
+  (10,64,"Jun 2, 2023"),
+  (85,28,"Jan 26, 2024"),
+  (3,48,"Aug 28, 2023"),
+  (74,87,"Sep 22, 2023"),
+  (2,3,"Sep 2, 2022"),
+  (95,94,"May 12, 2022"),
+  (4,87,"Feb 13, 2023");
+INSERT INTO `order_delivery_man` (`order_id`,`delivery_man_id`,`delivery_Dates`)
+VALUES
+  (73,36,"Nov 14, 2023"),
+  (56,25,"Apr 7, 2023"),
+  (77,16,"Jun 6, 2023"),
+  (41,24,"Jan 19, 2023"),
+  (85,52,"Aug 18, 2023"),
+  (21,54,"Jul 11, 2023"),
+  (64,66,"Oct 16, 2023"),
+  (94,67,"Mar 30, 2023"),
+  (21,60,"Jul 28, 2023"),
+  (85,20,"May 4, 2022");
+
+
+

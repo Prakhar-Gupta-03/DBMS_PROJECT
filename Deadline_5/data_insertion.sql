@@ -526,579 +526,479 @@ insert into Customer (Customer_Fname, Customer_Lname, Customer_Email, Customer_P
 insert into Customer (Customer_Fname, Customer_Lname, Customer_Email, Customer_Password, Customer_Wallet, Customer_Address_BuildingNo, Customer_Address_Street, Customer_Address_City, Customer_Address_State, Customer_Contact_Number) values ('Alley', 'Goff', 'agoff2r@ow.ly', 'IhJrxRs', 9993, 407, 'High Crossing', 'Safara', '02', '6426245318');
 
 
--- orders data entry
-
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2022-03-01 23:29:23', 33, 433, 95);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2022-06-27 03:18:41', 17, 938, 71);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2022-05-11 03:06:59', 86, 199, 55);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2023-02-01 20:02:40', 22, 467, 6);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2023-01-30 22:45:31', 55, 993, 27);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2022-11-14 02:39:55', 3, 130, 98);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2022-09-19 15:03:02', 16, 429, 4);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2022-12-17 10:36:52', 97, 415, 60);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2022-06-28 02:30:43', 32, 125, 70);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2023-02-10 19:52:00', 66, 134, 5);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2022-12-31 19:18:58', 3, 696, 67);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2022-10-06 10:46:48', 11, 932, 6);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2022-10-16 02:37:41', 75, 946, 43);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2022-05-23 13:05:36', 57, 935, 57);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2022-08-28 17:05:37', 92, 545, 71);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2022-07-03 10:37:32', 93, 605, 64);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2022-07-02 13:58:44', 5, 570, 49);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2022-08-20 09:15:21', 21, 538, 37);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2022-11-17 11:04:04', 88, 213, 12);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2023-01-23 22:28:31', 1, 479, 14);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2023-01-18 14:46:33', 92, 829, 62);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2022-12-14 15:54:21', 98, 116, 14);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2022-12-07 14:58:38', 52, 162, 43);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2022-11-05 23:25:03', 79, 444, 67);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2022-06-24 21:11:50', 20, 134, 72);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2022-04-07 08:40:16', 98, 764, 84);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2023-02-14 16:21:19', 96, 502, 64);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2022-07-16 16:04:45', 44, 579, 93);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2022-07-13 17:23:26', 43, 460, 70);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2022-05-05 13:34:32', 94, 335, 80);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2022-12-19 21:28:54', 67, 661, 77);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2022-10-14 07:31:40', 52, 836, 39);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2023-01-25 15:37:00', 48, 898, 61);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2022-11-04 00:15:38', 72, 87, 21);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2022-08-09 10:34:00', 14, 394, 93);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2022-10-27 03:21:24', 39, 846, 64);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2022-10-30 07:51:35', 19, 123, 71);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2022-12-30 14:02:27', 29, 178, 56);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2022-05-06 09:17:30', 25, 251, 35);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2022-10-29 08:44:22', 81, 756, 2);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2023-01-04 00:05:36', 36, 688, 75);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2022-04-04 04:41:32', 12, 179, 67);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2022-12-14 06:09:03', 18, 589, 36);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2022-11-30 03:38:05', 77, 644, 12);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2022-03-01 16:02:17', 42, 928, 20);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2022-07-09 14:02:56', 89, 436, 75);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2022-02-20 01:35:18', 81, 419, 96);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2022-02-22 00:29:09', 61, 976, 7);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2022-09-15 11:48:59', 60, 205, 32);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2022-03-24 06:00:46', 3, 467, 87);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2022-02-19 14:53:15', 71, 384, 33);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2022-05-01 10:42:43', 29, 827, 51);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2022-08-06 02:33:39', 99, 386, 48);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2022-12-05 11:10:07', 71, 486, 48);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2022-03-02 20:08:51', 87, 222, 83);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2022-04-23 19:51:50', 92, 509, 67);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2023-01-28 04:21:50', 56, 249, 94);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2023-01-03 03:34:35', 20, 753, 32);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2022-11-03 07:22:53', 2, 667, 19);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2022-08-29 21:40:09', 90, 533, 82);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2022-12-16 13:23:43', 33, 453, 62);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2022-03-21 08:08:37', 40, 369, 22);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2023-01-14 14:02:20', 91, 849, 21);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2022-07-16 04:50:59', 51, 238, 45);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2022-09-26 18:33:01', 57, 607, 72);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2023-01-27 08:30:54', 98, 805, 65);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2022-09-02 13:13:49', 5, 236, 80);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2022-07-05 22:31:59', 74, 245, 9);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2022-02-25 05:32:17', 64, 823, 77);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2022-09-22 07:43:29', 92, 819, 55);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2022-05-11 12:07:20', 63, 654, 8);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2022-03-08 00:12:38', 54, 834, 70);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2022-11-11 01:51:55', 9, 457, 45);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2022-10-04 01:34:49', 74, 592, 20);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2023-01-25 01:41:20', 84, 169, 32);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2022-07-10 07:49:43', 17, 409, 31);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2023-01-23 02:18:05', 55, 103, 25);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2022-04-07 09:55:33', 45, 773, 87);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2022-06-06 10:23:36', 58, 280, 93);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2022-10-19 02:25:29', 24, 962, 22);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2022-11-27 01:01:37', 6, 128, 78);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2022-11-02 10:38:31', 81, 305, 99);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2022-04-11 10:13:03', 60, 314, 95);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2022-03-06 08:21:39', 60, 357, 59);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2022-04-08 18:35:43', 59, 888, 18);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2022-08-31 00:38:18', 91, 252, 48);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2023-01-31 21:13:38', 3, 621, 72);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2022-07-20 21:31:52', 62, 290, 26);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2022-08-28 09:24:39', 73, 521, 60);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2022-06-25 01:37:19', 24, 541, 61);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2023-02-06 16:36:26', 63, 557, 83);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2022-10-15 00:24:48', 76, 310, 74);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2022-04-15 20:23:35', 59, 178, 14);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2022-11-26 09:29:44', 85, 968, 49);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2022-03-10 18:48:39', 24, 70, 24);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2022-04-18 10:43:07', 100, 355, 67);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2022-03-26 05:21:22', 39, 816, 38);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2022-10-05 00:15:51', 92, 242, 79);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2022-12-04 19:52:13', 10, 913, 41);
-insert into Orders (Order_datetime, customer_ID, order_amount, admin_ID) values ('2022-05-02 09:35:56', 10, 221, 32);
-
-
 
 -- delivery man data insertion
 
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Avery', '7638840022', 'amulqueeny0@nydailynews.com', 'OjUImxgj52R', 38, 73);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Eddie', '7119936600', 'ewaterhouse1@twitter.com', 'e6ISE8FSmwD', 9, 87);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Zola', '9093688966', 'zwinterborne2@ezinearticles.com', 'iIHquSDL', 17, 90);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Meryl', '9565725224', 'mapted3@stumbleupon.com', 'BuoUgiykx8', 68, 36);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Tuckie', '9233995629', 'tsiddall4@so-net.ne.jp', 'FwyswEhr2H', 100, 93);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Leigh', '5328697784', 'lvaillant5@ibm.com', '93NJsXr', 42, 62);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Karyl', '6993979161', 'kglenfield6@topsy.com', '5nkPIDl', 68, 43);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Marijo', '1642933249', 'mgolthorpp7@acquirethisname.com', 'OgXFRl28NaUy', 95, 42);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Barnard', '3501303047', 'bglaum8@jiathis.com', 'ldHsKvMLBX', 32, 19);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Vivie', '9397694515', 'valeevy9@godaddy.com', 'ER1KU9N', 72, 86);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Allen', '7722618442', 'astoakesa@ibm.com', 'vz0fZqW19UH', 22, 83);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Margret', '9417434880', 'mbrachb@java.com', '0BnbbALE0', 10, 58);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Mayer', '8702342728', 'mvenusc@princeton.edu', 'boAeBbdmqehh', 17, 28);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Nichole', '3275655334', 'nvallenderd@earthlink.net', 'BWSU40', 62, 2);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Roi', '6266571444', 'rgoulthorpe@moonfruit.com', 'slEmdu', 2, 65);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Norbie', '3842556916', 'nwalduckf@smugmug.com', 'jI4l8l2U', 58, 27);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Barrie', '8676053155', 'bmullinsg@howstuffworks.com', 'JUeBhhprP', 17, 77);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Sherie', '6457986655', 'ssweetth@techcrunch.com', 'qaQVFuG', 18, 15);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Brinna', '7356863808', 'bgrayshani@japanpost.jp', 'nNCAHWUC', 54, 58);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Salim', '5091343417', 'svereckerj@state.gov', '6CwJsIF3f', 72, 64);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Yorgos', '3227773056', 'ygodark@lycos.com', '0HeLphg98z', 42, 68);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Lesley', '7503484788', 'lbertomeul@ebay.com', 'QvMEUiQLKn', 42, 69);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Keith', '8663291751', 'kdilgarnom@youku.com', 'H66F0E', 65, 55);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Kordula', '5626767076', 'kbercerosn@mozilla.org', 'vrOWbnWd', 93, 60);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Shelton', '8424820522', 'srogero@squidoo.com', 'HQ6LPh', 81, 23);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Floris', '6665206598', 'flamymanp@github.com', 'hDLPXKs', 19, 41);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Etty', '2797324401', 'ecinnamondq@yandex.ru', '1abuVprDq', 14, 47);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Krista', '8124915065', 'kblagdenr@chron.com', 'UzAmAFtjH', 17, 39);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Merlina', '6696449611', 'mcalleys@dailymotion.com', 'J2YLqUl', 74, 99);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Florencia', '7633467650', 'fcalderont@washingtonpost.com', 'jHsvCJ9Vk', 48, 59);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Tremaine', '9978958725', 'tsouthbyu@discuz.net', 'cyCrqN', 18, 67);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Julius', '9038339823', 'jpolliev@oaic.gov.au', 'f9Ve1re4Ld0v', 51, 62);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Eleanor', '7781691849', 'eheismanw@infoseek.co.jp', 'fTPH4q', 98, 48);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Amil', '5856742451', 'ahallawellx@oakley.com', 'qwYInD', 81, 4);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Janean', '8941931657', 'jtebbuty@indiatimes.com', 'sG7scCOpGp', 42, 65);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Dael', '4648091781', 'dlacostez@telegraph.co.uk', 'dGv09TIifM', 59, 87);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Stanislas', '5473621166', 'ssymers10@imageshack.us', 'QDMj6rP', 99, 46);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Chrissy', '3194392275', 'cgierek11@telegraph.co.uk', 'T5NnEhXaln', 4, 22);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Kathryn', '2795312431', 'kmaylam12@irs.gov', 'OUjawc', 18, 15);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Sherline', '6181468411', 'storvey13@addthis.com', 'AZyokCZFK', 29, 79);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Tabor', '6551282616', 'tgirodias14@homestead.com', 'uRv0nEc', 16, 8);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Roselia', '4697332307', 'rilett15@unesco.org', 'eGv9Sjr', 52, 16);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Merline', '4792534641', 'mputtergill16@buzzfeed.com', 'pd4cHeAB', 92, 14);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Gabey', '2568662822', 'gmcguffog17@discuz.net', 'OekmoURNeVsm', 98, 55);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Willi', '7748037438', 'wmcsperron18@webmd.com', 'o484aIfB8', 28, 96);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Sharline', '8353449516', 'struscott19@aol.com', 'Atdmf72N', 82, 89);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Calley', '9671061269', 'comulderrig1a@twitter.com', 'QPGDiDIP', 15, 91);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Pam', '4544718592', 'pmcfie1b@uol.com.br', 'gyvC49AUVC', 72, 6);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Aime', '6217001764', 'akydde1c@naver.com', '33wLfdJ', 74, 76);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Leone', '3459289978', 'lastling1d@last.fm', 'tUuB3nMMjN', 20, 56);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Evie', '5827337724', 'etawn1e@apache.org', 'ne9ommi', 69, 22);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Abie', '3798937904', 'abraker1f@cnbc.com', 'wzX3Yx6OpXXP', 15, 38);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Baryram', '2526054839', 'bdrain1g@apple.com', 'QvPRcHcp', 66, 21);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Marris', '1469483381', 'mlytle1h@unblog.fr', 'fYFtirb', 45, 2);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Sloan', '7615965274', 'sbaglow1i@ed.gov', '0t0RRj', 36, 19);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Bentley', '6649260786', 'bbishell1j@cnet.com', 'TLDCegnCSzzj', 10, 65);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Garrett', '3758109422', 'gpedwell1k@gravatar.com', 'fpUfK38AV8', 63, 17);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Theodora', '6242438723', 'tmatzeitis1l@blogs.com', '5Q6iOYUJ', 33, 64);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Nelson', '7803150912', 'ncolegrove1m@springer.com', '9VFClC7', 73, 92);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Felita', '7422787426', 'ftrewin1n@state.gov', 'qhhjZFW', 79, 74);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Lazaro', '1961931365', 'lspraggon1o@latimes.com', 'nIqADAVJh', 29, 89);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Noellyn', '2449410779', 'nbleier1p@utexas.edu', 'gognT6M', 5, 13);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Holli', '2392035538', 'hblaskett1q@fda.gov', '7rgM5M', 3, 9);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Mala', '5566150956', 'mmosby1r@patch.com', '2ulFGeAb', 78, 61);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Leslie', '4643509965', 'lenzley1s@unblog.fr', 'ntAX0hv', 68, 12);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Wayne', '3143489751', 'wravel1t@nyu.edu', 'HQ9tBiJv', 25, 74);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Dredi', '5252775471', 'dlangtry1u@wikispaces.com', 'PkJ5pW', 44, 44);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Thadeus', '4449167102', 'thryskiewicz1v@sohu.com', '0geoL7', 19, 41);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Rollins', '8042185131', 'rgarrison1w@nymag.com', 'escm47BkbTCA', 96, 100);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Vikky', '8599652220', 'vdelacote1x@netlog.com', 'cyoob6Gzp', 12, 21);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Eolande', '5536823788', 'ebraunle1y@cocolog-nifty.com', 'mgd1X7R0hWE', 8, 57);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Sonny', '3774288826', 'sassandri1z@paypal.com', 'ihPhKXkD', 75, 62);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Dacy', '5573963984', 'dcanham20@omniture.com', 'KtJueCof6q66', 59, 20);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Adah', '9823034552', 'alindenfeld21@spotify.com', 'HW3bNcxQtMM', 5, 11);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Harper', '1538652409', 'horet22@bandcamp.com', '7L47All2', 42, 57);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Silvio', '3624411561', 'ssarten23@tinyurl.com', '0RPGP9BgD', 89, 64);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Cybill', '4934985239', 'ccolls24@cbslocal.com', 'oTlYRXFIz', 51, 85);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Margaretta', '7639409543', 'mbirdwhistell25@skype.com', 'h7gsueMBPsf6', 93, 82);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Aurore', '4542337755', 'alabin26@deliciousdays.com', 'MRdgQCVD', 13, 34);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Roda', '2505940543', 'rjankin27@networksolutions.com', 'O7S8COr0dZ', 100, 90);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Archaimbaud', '9497940910', 'apicford28@4shared.com', 'aX9trJM', 78, 83);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Florida', '9365988826', 'fwinthrop29@live.com', 'eoU7A25', 86, 40);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Richmond', '4361269502', 'rknapton2a@si.edu', 'EZdesx2', 95, 66);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Hanson', '6099480185', 'hbonner2b@ebay.com', 'd83Q8vhY74', 95, 87);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Barnabas', '9078679635', 'blansdowne2c@intel.com', 'NgksWLvT1uft', 51, 16);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Vergil', '6641138361', 'vmathy2d@walmart.com', 'qkX2jvwZ', 99, 27);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Dedie', '1366605838', 'dyouhill2e@earthlink.net', 'UfAx36LNx', 77, 74);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Zacharias', '2766717341', 'zhaye2f@admin.ch', '5UEAgjkL', 65, 95);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Worth', '4255221033', 'wbauduin2g@theguardian.com', '6ggUOplB2y6y', 23, 17);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Lanita', '2906707750', 'lchazerand2h@unesco.org', 'WOZYVJL', 65, 84);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Benedick', '3109443143', 'bmalek2i@github.com', 'iQ2meok9', 24, 27);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Nell', '1857838816', 'ntunno2j@examiner.com', 'ZnSQQdKM', 69, 40);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Reider', '9635515810', 'rhengoed2k@godaddy.com', '1Lmw0iDQZix', 68, 22);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Filmore', '5369661879', 'fmclarens2l@globo.com', 'zVk2UJ', 82, 90);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Maxim', '8643616423', 'mhakey2m@home.pl', 'GFcvSZ', 19, 3);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Jonie', '5805072971', 'jraleston2n@twitter.com', 'vp6uno2D3A', 87, 89);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Phillida', '5734314293', 'pmeasom2o@soundcloud.com', 'qegV1j', 6, 13);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Mikaela', '2712268031', 'mhobbert2p@mlb.com', 't2mNl7ds4c', 34, 66);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Andrea', '5601330481', 'achiene2q@bluehost.com', 'N2aYLyATjhUX', 59, 15);
-insert into Delivery_man (man_name, man_contact, man_email, man_pass, order_ID, admin_ID) values ('Lishe', '5042241016', 'lconisbee2r@jimdo.com', 'Gav4qg1c6X', 12, 18);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Avery', '7638840022', 'amulqueeny0@nydailynews.com', 'OjUImxgj52R', 73);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Eddie', '7119936600', 'ewaterhouse1@twitter.com', 'e6ISE8FSmwD', 87);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Zola', '9093688966', 'zwinterborne2@ezinearticles.com', 'iIHquSDL', 90);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Meryl', '9565725224', 'mapted3@stumbleupon.com', 'BuoUgiykx8', 36);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Tuckie', '9233995629', 'tsiddall4@so-net.ne.jp', 'FwyswEhr2H', 93);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Leigh', '5328697784', 'lvaillant5@ibm.com', '93NJsXr', 62);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Karyl', '6993979161', 'kglenfield6@topsy.com', '5nkPIDl', 43);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Marijo', '1642933249', 'mgolthorpp7@acquirethisname.com', 'OgXFRl28NaUy', 42);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Barnard', '3501303047', 'bglaum8@jiathis.com', 'ldHsKvMLBX', 19);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Vivie', '9397694515', 'valeevy9@godaddy.com', 'ER1KU9N', 86);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Allen', '7722618442', 'astoakesa@ibm.com', 'vz0fZqW19UH', 83);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Margret', '9417434880', 'mbrachb@java.com', '0BnbbALE0', 58);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Mayer', '8702342728', 'mvenusc@princeton.edu', 'boAeBbdmqehh', 28);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Nichole', '3275655334', 'nvallenderd@earthlink.net', 'BWSU40', 2);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Roi', '6266571444', 'rgoulthorpe@moonfruit.com', 'slEmdu', 65);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Norbie', '3842556916', 'nwalduckf@smugmug.com', 'jI4l8l2U', 27);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Barrie', '8676053155', 'bmullinsg@howstuffworks.com', 'JUeBhhprP', 77);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Sherie', '6457986655', 'ssweetth@techcrunch.com', 'qaQVFuG', 15);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Brinna', '7356863808', 'bgrayshani@japanpost.jp', 'nNCAHWUC', 58);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Salim', '5091343417', 'svereckerj@state.gov', '6CwJsIF3f', 64);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Yorgos', '3227773056', 'ygodark@lycos.com', '0HeLphg98z', 68);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Lesley', '7503484788', 'lbertomeul@ebay.com', 'QvMEUiQLKn', 69);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Keith', '8663291751', 'kdilgarnom@youku.com', 'H66F0E', 55);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Kordula', '5626767076', 'kbercerosn@mozilla.org', 'vrOWbnWd', 60);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Shelton', '8424820522', 'srogero@squidoo.com', 'HQ6LPh', 23);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Floris', '6665206598', 'flamymanp@github.com', 'hDLPXKs', 41);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Etty', '2797324401', 'ecinnamondq@yandex.ru', '1abuVprDq', 47);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Krista', '8124915065', 'kblagdenr@chron.com', 'UzAmAFtjH', 39);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Merlina', '6696449611', 'mcalleys@dailymotion.com', 'J2YLqUl', 99);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Florencia', '7633467650', 'fcalderont@washingtonpost.com', 'jHsvCJ9Vk', 59);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Tremaine', '9978958725', 'tsouthbyu@discuz.net', 'cyCrqN', 67);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Julius', '9038339823', 'jpolliev@oaic.gov.au', 'f9Ve1re4Ld0v', 62);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Eleanor', '7781691849', 'eheismanw@infoseek.co.jp', 'fTPH4q', 48);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Amil', '5856742451', 'ahallawellx@oakley.com', 'qwYInD', 4);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Janean', '8941931657', 'jtebbuty@indiatimes.com', 'sG7scCOpGp', 65);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Dael', '4648091781', 'dlacostez@telegraph.co.uk', 'dGv09TIifM', 87);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Stanislas', '5473621166', 'ssymers10@imageshack.us', 'QDMj6rP', 46);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Chrissy', '3194392275', 'cgierek11@telegraph.co.uk', 'T5NnEhXaln', 22);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Kathryn', '2795312431', 'kmaylam12@irs.gov', 'OUjawc', 15);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Sherline', '6181468411', 'storvey13@addthis.com', 'AZyokCZFK', 79);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Tabor', '6551282616', 'tgirodias14@homestead.com', 'uRv0nEc', 8);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Roselia', '4697332307', 'rilett15@unesco.org', 'eGv9Sjr', 16);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Merline', '4792534641', 'mputtergill16@buzzfeed.com', 'pd4cHeAB', 14);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Gabey', '2568662822', 'gmcguffog17@discuz.net', 'OekmoURNeVsm', 55);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Willi', '7748037438', 'wmcsperron18@webmd.com', 'o484aIfB8', 96);
 
 
--- cart data insertion
+
+  
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Sharline', '8353449516', 'struscott19@aol.com', 'Atdmf72N', 89);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Calley', '9671061269', 'comulderrig1a@twitter.com', 'QPGDiDIP', 91);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Pam', '4544718592', 'pmcfie1b@uol.com.br', 'gyvC49AUVC', 6);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Aime', '6217001764', 'akydde1c@naver.com', '33wLfdJ', 76);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Leone', '3459289978', 'lastling1d@last.fm', 'tUuB3nMMjN', 56);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Evie', '5827337724', 'etawn1e@apache.org', 'ne9ommi', 22);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Abie', '3798937904', 'abraker1f@cnbc.com', 'wzX3Yx6OpXXP', 38);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Baryram', '2526054839', 'bdrain1g@apple.com', 'QvPRcHcp', 21);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Marris', '1469483381', 'mlytle1h@unblog.fr', 'fYFtirb', 2);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Sloan', '7615965274', 'sbaglow1i@ed.gov', '0t0RRj', 19);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Bentley', '6649260786', 'bbishell1j@cnet.com', 'TLDCegnCSzzj', 65);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Garrett', '3758109422', 'gpedwell1k@gravatar.com', 'fpUfK38AV8', 17);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Theodora', '6242438723', 'tmatzeitis1l@blogs.com', '5Q6iOYUJ', 64);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Nelson', '7803150912', 'ncolegrove1m@springer.com', '9VFClC7', 92);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Felita', '7422787426', 'ftrewin1n@state.gov', 'qhhjZFW', 74);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Lazaro', '1961931365', 'lspraggon1o@latimes.com', 'nIqADAVJh', 89);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Noellyn', '2449410779', 'nbleier1p@utexas.edu', 'gognT6M', 13);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Holli', '2392035538', 'hblaskett1q@fda.gov', '7rgM5M', 9);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Mala', '5566150956', 'mmosby1r@patch.com', '2ulFGeAb', 61);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Leslie', '4643509965', 'lenzley1s@unblog.fr', 'ntAX0hv', 12);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Wayne', '3143489751', 'wravel1t@nyu.edu', 'HQ9tBiJv', 74);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Dredi', '5252775471', 'dlangtry1u@wikispaces.com', 'PkJ5pW', 44);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Thadeus', '4449167102', 'thryskiewicz1v@sohu.com', '0geoL7', 41);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Rollins', '8042185131', 'rgarrison1w@nymag.com', 'escm47BkbTCA', 100);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Vikky', '8599652220', 'vdelacote1x@netlog.com', 'cyoob6Gzp', 21);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Eolande', '5536823788', 'ebraunle1y@cocolog-nifty.com', 'mgd1X7R0hWE', 57);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Sonny', '3774288826', 'sassandri1z@paypal.com', 'ihPhKXkD', 62);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Dacy', '5573963984', 'dcanham20@omniture.com', 'KtJueCof6q66', 20);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Adah', '9823034552', 'alindenfeld21@spotify.com', 'HW3bNcxQtMM', 11);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Harper', '1538652409', 'horet22@bandcamp.com', '7L47All2', 57);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Silvio', '3624411561', 'ssarten23@tinyurl.com', '0RPGP9BgD', 64);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Cybill', '4934985239', 'ccolls24@cbslocal.com', 'oTlYRXFIz', 85);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Margaretta', '7639409543', 'mbirdwhistell25@skype.com', 'h7gsueMBPsf6', 82);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Aurore', '4542337755', 'alabin26@deliciousdays.com', 'MRdgQCVD', 34);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Roda', '2505940543', 'rjankin27@networksolutions.com', 'O7S8COr0dZ', 90);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Archaimbaud', '9497940910', 'apicford28@4shared.com', 'aX9trJM', 83);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Florida', '9365988826', 'fwinthrop29@live.com', 'eoU7A25', 40);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Richmond', '4361269502', 'rknapton2a@si.edu', 'EZdesx2', 66);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Hanson', '6099480185', 'hbonner2b@ebay.com', 'd83Q8vhY74', 87);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Barnabas', '9078679635', 'blansdowne2c@intel.com', 'NgksWLvT1uft', 16);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Vergil', '6641138361', 'vmathy2d@walmart.com', 'qkX2jvwZ', 27);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Dedie', '1366605838', 'dyouhill2e@earthlink.net', 'UfAx36LNx', 74);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Zacharias', '2766717341', 'zhaye2f@admin.ch', '5UEAgjkL', 95);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Worth', '4255221033', 'wbauduin2g@theguardian.com', '6ggUOplB2y6y', 17);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Lanita', '2906707750', 'lchazerand2h@unesco.org', 'WOZYVJL', 84);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Benedick', '3109443143', 'bmalek2i@github.com', 'iQ2meok9', 27);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Nell', '1857838816', 'ntunno2j@examiner.com', 'ZnSQQdKM', 40);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Reider', '9635515810', 'rhengoed2k@godaddy.com', '1Lmw0iDQZix', 22);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Filmore', '5369661879', 'fmclarens2l@globo.com', 'zVk2UJ', 90);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Maxim', '8643616423', 'mhakey2m@home.pl', 'GFcvSZ', 3);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Jonie', '5805072971', 'jraleston2n@twitter.com', 'vp6uno2D3A', 89);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Phillida', '5734314293', 'pmeasom2o@soundcloud.com', 'qegV1j', 13);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Mikaela', '2712268031', 'mhobbert2p@mlb.com', 't2mNl7ds4c', 66);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Andrea', '5601330481', 'achiene2q@bluehost.com', 'N2aYLyATjhUX', 15);
+insert into Delivery_man (man_name, man_contact, man_email, man_pass, admin_ID) values ('Lishe', '5042241016', 'lconisbee2r@jimdo.com', 'Gav4qg1c6X', 18);
 
 
-INSERT INTO `cart` (`customer_id`,`product_id`,`product_quantity`)
-VALUES
-  (23,69,60),
-  (9,70,67),
-  (38,83,69),
-  (91,61,42),
-  (10,11,73),
-  (50,75,81),
-  (4,41,4),
-  (83,80,85),
-  (67,81,87),
-  (31,63,49);
-INSERT INTO `cart` (`customer_id`,`product_id`,`product_quantity`)
-VALUES
-  (61,54,87),
-  (55,21,8),
-  (16,74,10),
-  (16,40,54),
-  (62,75,30),
-  (60,61,85),
-  (59,4,95),
-  (73,84,13),
-  (10,9,71),
-  (34,33,63);
-INSERT INTO `cart` (`customer_id`,`product_id`,`product_quantity`)
-VALUES
-  (77,39,37),
-  (94,64,6),
-  (77,52,20),
-  (86,73,96),
-  (86,37,81),
-  (35,51,55),
-  (45,78,92),
-  (80,74,96),
-  (47,28,43),
-  (12,69,46);
-INSERT INTO `cart` (`customer_id`,`product_id`,`product_quantity`)
-VALUES
-  (58,57,2),
-  (48,96,79),
-  (72,70,58),
-  (60,18,95),
-  (20,44,93),
-  (35,95,15),
-  (94,30,85),
-  (41,78,62),
-  (20,24,42),
-  (44,90,84);
-INSERT INTO `cart` (`customer_id`,`product_id`,`product_quantity`)
-VALUES
-  (50,82,35),
-  (92,40,96),
-  (3,50,95),
-  (72,19,20),
-  (52,29,32),
-  (57,7,5),
-  (70,67,87),
-  (26,16,98),
-  (5,95,91),
-  (42,51,61);
-INSERT INTO `cart` (`customer_id`,`product_id`,`product_quantity`)
-VALUES
-  (23,48,84),
-  (35,77,91),
-  (64,13,30),
-  (7,70,40),
-  (87,4,21),
-  (49,30,70),
-  (0,59,59),
-  (37,61,34),
-  (17,5,97),
-  (17,87,9);
-INSERT INTO `cart` (`customer_id`,`product_id`,`product_quantity`)
-VALUES
-  (72,54,65),
-  (42,98,58),
-  (48,6,15),
-  (92,64,83),
-  (73,56,29),
-  (59,95,34),
-  (63,42,54),
-  (13,3,89),
-  (73,76,20),
-  (21,22,36);
-INSERT INTO `cart` (`customer_id`,`product_id`,`product_quantity`)
-VALUES
-  (79,25,67),
-  (32,18,81),
-  (75,54,1),
-  (11,51,51),
-  (40,6,35),
-  (92,63,77),
-  (31,31,10),
-  (48,10,31),
-  (97,55,87),
-  (46,15,72);
-INSERT INTO `cart` (`customer_id`,`product_id`,`product_quantity`)
-VALUES
-  (51,85,11),
-  (65,34,68),
-  (5,26,53),
-  (74,22,18),
-  (97,45,50),
-  (5,14,35),
-  (10,16,58),
-  (49,5,23),
-  (40,51,99),
-  (33,42,72);
-INSERT INTO `cart` (`customer_id`,`product_id`,`product_quantity`)
-VALUES
-  (15,80,16),
-  (29,87,20),
-  (31,92,82),
-  (79,30,13),
-  (59,41,20),
-  (33,81,28),
-  (5,92,9),
-  (75,66,54),
-  (33,23,80),
-  (54,51,38);
-  INSERT INTO `all_orders` (`customer_id`,`product_id`,`product_quantity`,`product_price`,`order_id`)
-VALUES
-  (14,40,88,421,17),
-  (57,94,38,685,3),
-  (31,35,84,769,86),
-  (25,78,52,212,10),
-  (61,9,30,896,24),
-  (84,24,13,473,67),
-  (63,52,80,353,90),
-  (68,82,1,495,28),
-  (99,99,65,298,41),
-  (5,49,16,937,90);
-INSERT INTO `all_orders` (`customer_id`,`product_id`,`product_quantity`,`product_price`,`order_id`)
-VALUES
-  (70,57,83,416,3),
-  (17,85,18,368,15),
-  (78,96,88,816,47),
-  (44,48,35,720,74),
-  (73,24,43,651,5),
-  (10,70,85,803,81),
-  (80,9,51,840,91),
-  (62,82,58,245,21),
-  (95,4,34,228,61),
-  (10,72,10,329,33);
-INSERT INTO `all_orders` (`customer_id`,`product_id`,`product_quantity`,`product_price`,`order_id`)
-VALUES
-  (12,43,33,719,9),
-  (41,26,21,56,89),
-  (92,45,76,633,79),
-  (10,80,27,33,99),
-  (7,99,95,263,64),
-  (66,44,8,465,13),
-  (4,90,67,24,60),
-  (95,11,15,538,44),
-  (25,43,32,233,4),
-  (20,43,75,273,77);
-INSERT INTO `all_orders` (`customer_id`,`product_id`,`product_quantity`,`product_price`,`order_id`)
-VALUES
-  (1,68,57,314,4),
-  (91,1,17,775,6),
-  (76,28,76,827,69),
-  (53,73,66,21,43),
-  (7,63,15,597,10),
-  (56,74,40,237,4),
-  (23,64,15,57,23),
-  (87,61,10,961,40),
-  (24,6,73,25,87),
-  (41,29,68,592,4);
-INSERT INTO `all_orders` (`customer_id`,`product_id`,`product_quantity`,`product_price`,`order_id`)
-VALUES
-  (19,27,40,687,19),
-  (75,77,45,913,6),
-  (79,30,95,711,52),
-  (19,59,78,572,80),
-  (50,74,46,365,74),
-  (31,33,60,907,28),
-  (94,100,31,895,42),
-  (27,8,60,890,58),
-  (48,67,43,800,52),
-  (31,53,72,772,33);
-INSERT INTO `all_orders` (`customer_id`,`product_id`,`product_quantity`,`product_price`,`order_id`)
-VALUES
-  (21,26,0,225,98),
-  (49,70,70,61,33),
-  (82,85,24,952,67),
-  (40,66,39,881,80),
-  (85,79,3,639,30),
-  (88,27,74,35,92),
-  (85,77,58,84,9),
-  (42,39,11,542,87),
-  (71,14,55,206,30),
-  (1,31,17,36,57);
-INSERT INTO `all_orders` (`customer_id`,`product_id`,`product_quantity`,`product_price`,`order_id`)
-VALUES
-  (25,32,16,448,26),
-  (68,91,15,665,73),
-  (34,51,35,735,78),
-  (71,97,7,682,96),
-  (55,16,82,451,49),
-  (4,13,15,814,4),
-  (58,84,24,987,36),
-  (10,1,19,876,41),
-  (15,82,53,695,4),
-  (62,12,66,630,22);
-INSERT INTO `all_orders` (`customer_id`,`product_id`,`product_quantity`,`product_price`,`order_id`)
-VALUES
-  (100,34,30,342,50),
-  (72,1,55,428,81),
-  (26,54,66,442,14),
-  (84,99,6,772,74),
-  (0,38,21,992,62),
-  (16,74,64,503,42),
-  (94,32,55,311,10),
-  (7,19,75,856,54),
-  (1,59,41,891,37),
-  (22,99,64,275,42);
-INSERT INTO `all_orders` (`customer_id`,`product_id`,`product_quantity`,`product_price`,`order_id`)
-VALUES
-  (16,74,13,232,81),
-  (1,82,41,905,94),
-  (80,81,95,334,62),
-  (87,89,60,923,85),
-  (51,99,60,821,88),
-  (23,7,50,589,19),
-  (77,16,77,536,18),
-  (99,52,86,587,67),
-  (45,4,32,86,100),
-  (1,28,16,833,33);
-INSERT INTO `all_orders` (`customer_id`,`product_id`,`product_quantity`,`product_price`,`order_id`)
-VALUES
-  (43,71,57,188,32),
-  (27,12,46,191,5),
-  (70,36,59,44,74),
-  (45,65,99,612,2),
-  (47,41,55,281,74),
-  (90,77,27,70,64),
-  (0,97,64,986,23),
-  (49,45,76,118,16),
-  (62,89,8,913,59),
-  (99,98,70,347,82);
+-- -- cart data insertion
 
-INSERT INTO `order_delivery_man` (`order_id`,`delivery_man_id`,`delivery_Dates`)
-VALUES
-  (41,13,"Jun 2, 2023"),
-  (64,68,"Jun 13, 2023"),
-  (5,45,"Sep 8, 2022"),
-  (55,30,"Apr 2, 2023"),
-  (73,63,"Nov 27, 2023"),
-  (82,2,"Mar 2, 2024"),
-  (90,97,"Jul 4, 2023"),
-  (87,100,"Jul 11, 2022"),
-  (61,51,"Jun 12, 2023"),
-  (28,30,"Mar 1, 2024");
-INSERT INTO `order_delivery_man` (`order_id`,`delivery_man_id`,`delivery_Dates`)
-VALUES
-  (44,81,"Jun 6, 2022"),
-  (69,87,"Jul 19, 2023"),
-  (48,58,"Nov 4, 2022"),
-  (54,11,"Jun 8, 2022"),
-  (13,34,"May 30, 2022"),
-  (14,23,"Apr 11, 2022"),
-  (35,69,"Jun 16, 2022"),
-  (48,52,"Mar 22, 2024"),
-  (99,74,"Aug 7, 2023"),
-  (28,11,"Apr 24, 2023");
-INSERT INTO `order_delivery_man` (`order_id`,`delivery_man_id`,`delivery_Dates`)
-VALUES
-  (12,26,"Jan 9, 2024"),
-  (28,65,"May 1, 2023"),
-  (9,46,"Jul 17, 2023"),
-  (42,28,"May 28, 2022"),
-  (40,82,"Feb 13, 2024"),
-  (15,72,"Aug 4, 2023"),
-  (83,38,"Sep 2, 2022"),
-  (51,15,"May 11, 2023"),
-  (21,52,"Oct 17, 2022"),
-  (96,49,"Sep 11, 2022");
-INSERT INTO `order_delivery_man` (`order_id`,`delivery_man_id`,`delivery_Dates`)
-VALUES
-  (100,53,"Aug 4, 2023"),
-  (42,2,"Jul 20, 2023"),
-  (64,66,"May 8, 2022"),
-  (68,14,"May 30, 2022"),
-  (45,63,"Nov 7, 2023"),
-  (57,7,"Jul 14, 2023"),
-  (70,75,"Feb 11, 2023"),
-  (35,60,"Oct 9, 2022"),
-  (53,33,"Mar 30, 2022"),
-  (92,2,"Mar 11, 2023");
-INSERT INTO `order_delivery_man` (`order_id`,`delivery_man_id`,`delivery_Dates`)
-VALUES
-  (2,18,"Oct 8, 2023"),
-  (36,36,"Dec 27, 2022"),
-  (13,19,"Apr 8, 2022"),
-  (22,58,"May 20, 2022"),
-  (26,22,"Dec 24, 2023"),
-  (70,39,"Mar 19, 2023"),
-  (95,51,"Mar 28, 2022"),
-  (27,16,"Sep 3, 2022"),
-  (50,5,"Aug 24, 2023"),
-  (42,32,"Nov 9, 2023");
-INSERT INTO `order_delivery_man` (`order_id`,`delivery_man_id`,`delivery_Dates`)
-VALUES
-  (53,91,"Mar 9, 2024"),
-  (75,64,"Mar 16, 2023"),
-  (6,44,"Jan 31, 2023"),
-  (5,95,"Oct 10, 2022"),
-  (29,77,"Mar 30, 2023"),
-  (63,78,"Dec 24, 2022"),
-  (80,32,"Jun 19, 2022"),
-  (60,72,"Dec 13, 2022"),
-  (76,30,"Mar 12, 2024"),
-  (34,2,"May 8, 2022");
-INSERT INTO `order_delivery_man` (`order_id`,`delivery_man_id`,`delivery_Dates`)
-VALUES
-  (8,9,"Oct 13, 2023"),
-  (44,14,"Nov 8, 2022"),
-  (41,97,"Jan 19, 2024"),
-  (98,96,"Sep 6, 2022"),
-  (7,37,"Oct 30, 2022"),
-  (92,90,"Jan 1, 2023"),
-  (22,1,"Jul 27, 2023"),
-  (59,8,"Feb 20, 2024"),
-  (83,51,"Nov 29, 2023"),
-  (83,85,"Jul 18, 2022");
-INSERT INTO `order_delivery_man` (`order_id`,`delivery_man_id`,`delivery_Dates`)
-VALUES
-  (35,74,"Apr 18, 2022"),
-  (35,81,"Nov 11, 2022"),
-  (39,29,"Mar 9, 2024"),
-  (37,28,"Mar 31, 2023"),
-  (16,96,"Jun 10, 2023"),
-  (65,31,"Apr 10, 2023"),
-  (52,51,"Dec 6, 2022"),
-  (62,41,"Dec 7, 2023"),
-  (95,83,"Jan 26, 2024"),
-  (57,69,"Sep 10, 2023");
-INSERT INTO `order_delivery_man` (`order_id`,`delivery_man_id`,`delivery_Dates`)
-VALUES
-  (19,28,"Aug 6, 2023"),
-  (57,78,"Jan 17, 2023"),
-  (33,48,"Nov 2, 2023"),
-  (10,64,"Jun 2, 2023"),
-  (85,28,"Jan 26, 2024"),
-  (3,48,"Aug 28, 2023"),
-  (74,87,"Sep 22, 2023"),
-  (2,3,"Sep 2, 2022"),
-  (95,94,"May 12, 2022"),
-  (4,87,"Feb 13, 2023");
-INSERT INTO `order_delivery_man` (`order_id`,`delivery_man_id`,`delivery_Dates`)
-VALUES
-  (73,36,"Nov 14, 2023"),
-  (56,25,"Apr 7, 2023"),
-  (77,16,"Jun 6, 2023"),
-  (41,24,"Jan 19, 2023"),
-  (85,52,"Aug 18, 2023"),
-  (21,54,"Jul 11, 2023"),
-  (64,66,"Oct 16, 2023"),
-  (94,67,"Mar 30, 2023"),
-  (21,60,"Jul 28, 2023"),
-  (85,20,"May 4, 2022");
+
+-- INSERT INTO `cart` (`customer_id`,`product_id`,`product_quantity`)
+-- VALUES
+--   (23,69,60),
+--   (9,70,67),
+--   (38,83,69),
+--   (91,61,42),
+--   (10,11,73),
+--   (50,75,81),
+--   (4,41,4),
+--   (83,80,85),
+--   (67,81,87),
+--   (31,63,49);
+-- INSERT INTO `cart` (`customer_id`,`product_id`,`product_quantity`)
+-- VALUES
+--   (61,54,87),
+--   (55,21,8),
+--   (16,74,10),
+--   (16,40,54),
+--   (62,75,30),
+--   (60,61,85),
+--   (59,4,95),
+--   (73,84,13),
+--   (10,9,71),
+--   (34,33,63);
+-- INSERT INTO `cart` (`customer_id`,`product_id`,`product_quantity`)
+-- VALUES
+--   (77,39,37),
+--   (94,64,6),
+--   (77,52,20),
+--   (86,73,96),
+--   (86,37,81),
+--   (35,51,55),
+--   (45,78,92),
+--   (80,74,96),
+--   (47,28,43),
+--   (12,69,46);
+-- INSERT INTO `cart` (`customer_id`,`product_id`,`product_quantity`)
+-- VALUES
+--   (58,57,2),
+--   (48,96,79),
+--   (72,70,58),
+--   (60,18,95),
+--   (20,44,93),
+--   (35,95,15),
+--   (94,30,85),
+--   (41,78,62),
+--   (20,24,42),
+--   (44,90,84);
+-- INSERT INTO `cart` (`customer_id`,`product_id`,`product_quantity`)
+-- VALUES
+--   (50,82,35),
+--   (92,40,96),
+--   (3,50,95),
+--   (72,19,20),
+--   (52,29,32),
+--   (57,7,5),
+--   (70,67,87),
+--   (26,16,98),
+--   (5,95,91),
+--   (42,51,61);
+-- INSERT INTO `cart` (`customer_id`,`product_id`,`product_quantity`)
+-- VALUES
+--   (23,48,84),
+--   (35,77,91),
+--   (64,13,30),
+--   (7,70,40),
+--   (87,4,21),
+--   (49,30,70),
+--   (0,59,59),
+--   (37,61,34),
+--   (17,5,97),
+--   (17,87,9);
+-- INSERT INTO `cart` (`customer_id`,`product_id`,`product_quantity`)
+-- VALUES
+--   (72,54,65),
+--   (42,98,58),
+--   (48,6,15),
+--   (92,64,83),
+--   (73,56,29),
+--   (59,95,34),
+--   (63,42,54),
+--   (13,3,89),
+--   (73,76,20),
+--   (21,22,36);
+-- INSERT INTO `cart` (`customer_id`,`product_id`,`product_quantity`)
+-- VALUES
+--   (79,25,67),
+--   (32,18,81),
+--   (75,54,1),
+--   (11,51,51),
+--   (40,6,35),
+--   (92,63,77),
+--   (31,31,10),
+--   (48,10,31),
+--   (97,55,87),
+--   (46,15,72);
+-- INSERT INTO `cart` (`customer_id`,`product_id`,`product_quantity`)
+-- VALUES
+--   (51,85,11),
+--   (65,34,68),
+--   (5,26,53),
+--   (74,22,18),
+--   (97,45,50),
+--   (5,14,35),
+--   (10,16,58),
+--   (49,5,23),
+--   (40,51,99),
+--   (33,42,72);
+-- INSERT INTO `cart` (`customer_id`,`product_id`,`product_quantity`)
+-- VALUES
+--   (15,80,16),
+--   (29,87,20),
+--   (31,92,82),
+--   (79,30,13),
+--   (59,41,20),
+--   (33,81,28),
+--   (5,92,9),
+--   (75,66,54),
+--   (33,23,80),
+--   (54,51,38);
+--   INSERT INTO `all_orders` (`customer_id`,`product_id`,`product_quantity`,`product_price`,`order_id`)
+-- VALUES
+--   (14,40,88,421,17),
+--   (57,94,38,685,3),
+--   (31,35,84,769,86),
+--   (25,78,52,212,10),
+--   (61,9,30,896,24),
+--   (84,24,13,473,67),
+--   (63,52,80,353,90),
+--   (68,82,1,495,28),
+--   (99,99,65,298,41),
+--   (5,49,16,937,90);
+-- INSERT INTO `all_orders` (`customer_id`,`product_id`,`product_quantity`,`product_price`,`order_id`)
+-- VALUES
+--   (70,57,83,416,3),
+--   (17,85,18,368,15),
+--   (78,96,88,816,47),
+--   (44,48,35,720,74),
+--   (73,24,43,651,5),
+--   (10,70,85,803,81),
+--   (80,9,51,840,91),
+--   (62,82,58,245,21),
+--   (95,4,34,228,61),
+--   (10,72,10,329,33);
+-- INSERT INTO `all_orders` (`customer_id`,`product_id`,`product_quantity`,`product_price`,`order_id`)
+-- VALUES
+--   (12,43,33,719,9),
+--   (41,26,21,56,89),
+--   (92,45,76,633,79),
+--   (10,80,27,33,99),
+--   (7,99,95,263,64),
+--   (66,44,8,465,13),
+--   (4,90,67,24,60),
+--   (95,11,15,538,44),
+--   (25,43,32,233,4),
+--   (20,43,75,273,77);
+-- INSERT INTO `all_orders` (`customer_id`,`product_id`,`product_quantity`,`product_price`,`order_id`)
+-- VALUES
+--   (1,68,57,314,4),
+--   (91,1,17,775,6),
+--   (76,28,76,827,69),
+--   (53,73,66,21,43),
+--   (7,63,15,597,10),
+--   (56,74,40,237,4),
+--   (23,64,15,57,23),
+--   (87,61,10,961,40),
+--   (24,6,73,25,87),
+--   (41,29,68,592,4);
+-- INSERT INTO `all_orders` (`customer_id`,`product_id`,`product_quantity`,`product_price`,`order_id`)
+-- VALUES
+--   (19,27,40,687,19),
+--   (75,77,45,913,6),
+--   (79,30,95,711,52),
+--   (19,59,78,572,80),
+--   (50,74,46,365,74),
+--   (31,33,60,907,28),
+--   (94,100,31,895,42),
+--   (27,8,60,890,58),
+--   (48,67,43,800,52),
+--   (31,53,72,772,33);
+-- INSERT INTO `all_orders` (`customer_id`,`product_id`,`product_quantity`,`product_price`,`order_id`)
+-- VALUES
+--   (21,26,0,225,98),
+--   (49,70,70,61,33),
+--   (82,85,24,952,67),
+--   (40,66,39,881,80),
+--   (85,79,3,639,30),
+--   (88,27,74,35,92),
+--   (85,77,58,84,9),
+--   (42,39,11,542,87),
+--   (71,14,55,206,30),
+--   (1,31,17,36,57);
+-- INSERT INTO `all_orders` (`customer_id`,`product_id`,`product_quantity`,`product_price`,`order_id`)
+-- VALUES
+--   (25,32,16,448,26),
+--   (68,91,15,665,73),
+--   (34,51,35,735,78),
+--   (71,97,7,682,96),
+--   (55,16,82,451,49),
+--   (4,13,15,814,4),
+--   (58,84,24,987,36),
+--   (10,1,19,876,41),
+--   (15,82,53,695,4),
+--   (62,12,66,630,22);
+-- INSERT INTO `all_orders` (`customer_id`,`product_id`,`product_quantity`,`product_price`,`order_id`)
+-- VALUES
+--   (100,34,30,342,50),
+--   (72,1,55,428,81),
+--   (26,54,66,442,14),
+--   (84,99,6,772,74),
+--   (0,38,21,992,62),
+--   (16,74,64,503,42),
+--   (94,32,55,311,10),
+--   (7,19,75,856,54),
+--   (1,59,41,891,37),
+--   (22,99,64,275,42);
+-- INSERT INTO `all_orders` (`customer_id`,`product_id`,`product_quantity`,`product_price`,`order_id`)
+-- VALUES
+--   (16,74,13,232,81),
+--   (1,82,41,905,94),
+--   (80,81,95,334,62),
+--   (87,89,60,923,85),
+--   (51,99,60,821,88),
+--   (23,7,50,589,19),
+--   (77,16,77,536,18),
+--   (99,52,86,587,67),
+--   (45,4,32,86,100),
+--   (1,28,16,833,33);
+-- INSERT INTO `all_orders` (`customer_id`,`product_id`,`product_quantity`,`product_price`,`order_id`)
+-- VALUES
+--   (43,71,57,188,32),
+--   (27,12,46,191,5),
+--   (70,36,59,44,74),
+--   (45,65,99,612,2),
+--   (47,41,55,281,74),
+--   (90,77,27,70,64),
+--   (0,97,64,986,23),
+--   (49,45,76,118,16),
+--   (62,89,8,913,59),
+--   (99,98,70,347,82);
+
+-- INSERT INTO `order_delivery_man` (`order_id`,`delivery_man_id`,`delivery_Dates`)
+-- VALUES
+--   (41,13,"Jun 2, 2023"),
+--   (64,68,"Jun 13, 2023"),
+--   (5,45,"Sep 8, 2022"),
+--   (55,30,"Apr 2, 2023"),
+--   (73,63,"Nov 27, 2023"),
+--   (82,2,"Mar 2, 2024"),
+--   (90,97,"Jul 4, 2023"),
+--   (87,100,"Jul 11, 2022"),
+--   (61,51,"Jun 12, 2023"),
+--   (28,30,"Mar 1, 2024");
+-- INSERT INTO `order_delivery_man` (`order_id`,`delivery_man_id`,`delivery_Dates`)
+-- VALUES
+--   (44,81,"Jun 6, 2022"),
+--   (69,87,"Jul 19, 2023"),
+--   (48,58,"Nov 4, 2022"),
+--   (54,11,"Jun 8, 2022"),
+--   (13,34,"May 30, 2022"),
+--   (14,23,"Apr 11, 2022"),
+--   (35,69,"Jun 16, 2022"),
+--   (48,52,"Mar 22, 2024"),
+--   (99,74,"Aug 7, 2023"),
+--   (28,11,"Apr 24, 2023");
+-- INSERT INTO `order_delivery_man` (`order_id`,`delivery_man_id`,`delivery_Dates`)
+-- VALUES
+--   (12,26,"Jan 9, 2024"),
+--   (28,65,"May 1, 2023"),
+--   (9,46,"Jul 17, 2023"),
+--   (42,28,"May 28, 2022"),
+--   (40,82,"Feb 13, 2024"),
+--   (15,72,"Aug 4, 2023"),
+--   (83,38,"Sep 2, 2022"),
+--   (51,15,"May 11, 2023"),
+--   (21,52,"Oct 17, 2022"),
+--   (96,49,"Sep 11, 2022");
+-- INSERT INTO `order_delivery_man` (`order_id`,`delivery_man_id`,`delivery_Dates`)
+-- VALUES
+--   (100,53,"Aug 4, 2023"),
+--   (42,2,"Jul 20, 2023"),
+--   (64,66,"May 8, 2022"),
+--   (68,14,"May 30, 2022"),
+--   (45,63,"Nov 7, 2023"),
+--   (57,7,"Jul 14, 2023"),
+--   (70,75,"Feb 11, 2023"),
+--   (35,60,"Oct 9, 2022"),
+--   (53,33,"Mar 30, 2022"),
+--   (92,2,"Mar 11, 2023");
+-- INSERT INTO `order_delivery_man` (`order_id`,`delivery_man_id`,`delivery_Dates`)
+-- VALUES
+--   (2,18,"Oct 8, 2023"),
+--   (36,36,"Dec 27, 2022"),
+--   (13,19,"Apr 8, 2022"),
+--   (22,58,"May 20, 2022"),
+--   (26,22,"Dec 24, 2023"),
+--   (70,39,"Mar 19, 2023"),
+--   (95,51,"Mar 28, 2022"),
+--   (27,16,"Sep 3, 2022"),
+--   (50,5,"Aug 24, 2023"),
+--   (42,32,"Nov 9, 2023");
+-- INSERT INTO `order_delivery_man` (`order_id`,`delivery_man_id`,`delivery_Dates`)
+-- VALUES
+--   (53,91,"Mar 9, 2024"),
+--   (75,64,"Mar 16, 2023"),
+--   (6,44,"Jan 31, 2023"),
+--   (5,95,"Oct 10, 2022"),
+--   (29,77,"Mar 30, 2023"),
+--   (63,78,"Dec 24, 2022"),
+--   (80,32,"Jun 19, 2022"),
+--   (60,72,"Dec 13, 2022"),
+--   (76,30,"Mar 12, 2024"),
+--   (34,2,"May 8, 2022");
+-- INSERT INTO `order_delivery_man` (`order_id`,`delivery_man_id`,`delivery_Dates`)
+-- VALUES
+--   (8,9,"Oct 13, 2023"),
+--   (44,14,"Nov 8, 2022"),
+--   (41,97,"Jan 19, 2024"),
+--   (98,96,"Sep 6, 2022"),
+--   (7,37,"Oct 30, 2022"),
+--   (92,90,"Jan 1, 2023"),
+--   (22,1,"Jul 27, 2023"),
+--   (59,8,"Feb 20, 2024"),
+--   (83,51,"Nov 29, 2023"),
+--   (83,85,"Jul 18, 2022");
+-- INSERT INTO `order_delivery_man` (`order_id`,`delivery_man_id`,`delivery_Dates`)
+-- VALUES
+--   (35,74,"Apr 18, 2022"),
+--   (35,81,"Nov 11, 2022"),
+--   (39,29,"Mar 9, 2024"),
+--   (37,28,"Mar 31, 2023"),
+--   (16,96,"Jun 10, 2023"),
+--   (65,31,"Apr 10, 2023"),
+--   (52,51,"Dec 6, 2022"),
+--   (62,41,"Dec 7, 2023"),
+--   (95,83,"Jan 26, 2024"),
+--   (57,69,"Sep 10, 2023");
+-- INSERT INTO `order_delivery_man` (`order_id`,`delivery_man_id`,`delivery_Dates`)
+-- VALUES
+--   (19,28,"Aug 6, 2023"),
+--   (57,78,"Jan 17, 2023"),
+--   (33,48,"Nov 2, 2023"),
+--   (10,64,"Jun 2, 2023"),
+--   (85,28,"Jan 26, 2024"),
+--   (3,48,"Aug 28, 2023"),
+--   (74,87,"Sep 22, 2023"),
+--   (2,3,"Sep 2, 2022"),
+--   (95,94,"May 12, 2022"),
+--   (4,87,"Feb 13, 2023");
+-- INSERT INTO `order_delivery_man` (`order_id`,`delivery_man_id`,`delivery_Dates`)
+-- VALUES
+--   (73,36,"Nov 14, 2023"),
+--   (56,25,"Apr 7, 2023"),
+--   (77,16,"Jun 6, 2023"),
+--   (41,24,"Jan 19, 2023"),
+--   (85,52,"Aug 18, 2023"),
+--   (21,54,"Jul 11, 2023"),
+--   (64,66,"Oct 16, 2023"),
+--   (94,67,"Mar 30, 2023"),
+--   (21,60,"Jul 28, 2023"),
+--   (85,20,"May 4, 2022");
 
 
 

@@ -34,6 +34,7 @@ def starting_menu():
     else:
         print("Invalid choice. Please try again.")
         starting_menu()
+    starting_menu()
 def customer_verification():
     print("Please enter your customer ID: ")
     id = int(input())
@@ -89,8 +90,6 @@ def view_products():
         res = cursor.fetchall()
         for i in res:
             print("Product ID: " + str(i[0]) + " Product name: " + str(i[1]) + " Product price: " + str(i[2]) + " Product quantity: " + str(i[3]))
-    elif choice == 4:
-        customer_menu()
     else:
         print("Invalid choice. Please try again.")
         view_products()
@@ -99,16 +98,17 @@ def view_categories():
     res = cursor.fetchall()
     for i in res:
         print("Category ID: " + str(i[0]) + " Category name: " + str(i[1]))
-    customer_menu()
 def view_cart(id):
     cursor.execute("SELECT * FROM CART WHERE CUSTOMER_ID = %s", (id,))
     res = cursor.fetchall()
     total_price = 0
     total_quantity = 0
     for i in res:
-        print("Product ID: " + str(i[1]) + " Product name: " + str(i[2]) + " Product price: " + str(i[3]) + " Product quantity: " + str(i[4]))
-        total_price += i[3]*i[4]
-        total_quantity += i[4]
+        print("Product ID: " + str(i[1]) + " Product quantity: " + str(i[2]))
+        cursor.execute("SELECT PRODUCT_PRICE FROM PRODUCT WHERE PRODUCT_ID = %s", (i[1],))
+        res1 = cursor.fetchall()
+        total_price += res1[0][0]*i[2]
+        total_quantity += i[2]
     print("Total price: " + str(total_price))
     print("Total quantity: " + str(total_quantity))
     customer_menu(id)
@@ -117,7 +117,7 @@ def add_to_cart(id):
     product_id = int(input())
     print("Please enter the quantity: ")
     quantity = int(input())
-    cursor.execute("INSERT INTO CART VALUES (%s, %s, %s, %s, %s)", (id, product_id, quantity, 0, 0))
+    cursor.execute("INSERT INTO CART(customer_id, product_id, product_quantity) VALUES (%s, %s, %s)", (id, product_id, quantity))
     db.commit()  
 def remove_from_cart(id):
     print("Please enter the product ID: ")
@@ -146,6 +146,8 @@ def order_history(id):
         print("Total quantity: " + str(total_quantity))
 def place_order(id):
     cursor.execute("Insert into orders(customer_id, order_datetime) values (%s, now())", (id,))
+    cursor.execute("update orders set order_amount = (select sum(product_price * product_quantity) from product where product_id in (select product_id from cart where customer_id = %s)) where order_id = (select max(order_id) from orders where customer_id = %s)", (id, id))
+    cursor.execute("delete from cart where customer_id = %s", (id,))
     db.commit()
     print("Order placed successfully!")
 def change_password(id):
@@ -213,7 +215,8 @@ def customer_menu(id):
         starting_menu()
     else:
         print("Invalid choice. Please try again.")
-        customer_menu()
+        customer_menu(id)
+    customer_menu(id)
 def view_orders_to_be_delivered(id):
     cursor.execute("select order_id from order_delivery_man where delivery_man_id = %s", (id,))
     res = cursor.fetchall()
@@ -266,6 +269,7 @@ def delivery_man_menu(id):
     else:
         print("Invalid choice. Please try again.")
         delivery_man_menu(id)
+    delivery_man_menu(id)
 def add_product():
     product_name = input("Enter product name: ")
     product_price = int(input("Enter product price: "))
@@ -346,4 +350,5 @@ def admin_menu(id):
     else:
         print("Invalid choice. Please try again.")
         admin_menu(id)   
+    admin_menu(id)
 starting_menu()

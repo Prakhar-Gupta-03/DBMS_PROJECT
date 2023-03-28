@@ -1,4 +1,5 @@
---trigger to be executed before a product is added to a cart
+USE TEST;
+-- -- trigger to be executed before a product is added to the cart
 create trigger add_to_cart before insert on CART
 for each row
 begin
@@ -60,29 +61,22 @@ begin
                 signal sqlstate '45000' set message_text = 'Cart is empty';
         end if;
         -- check if the customer has enough money to place the order
-        if (select sum(product_price * product_quantity) from cart where customer_id = new.customer_id) > (select customer_wallet_balance from customer where customer_id = new.customer_id) then
-                signal sqlstate '45000' set message_text = 'Insufficient balance';
+        if (select customer_wallet from customer where customer_id =new.customer_id) < (select sum(product_price * product_quantity) from product where product_id in (select product_id from cart where customer_id = new.customer_id)) then
+                signal sqlstate '45000' set message_text = 'Insufficient funds';
         end if;
         -- update customer wallet balance
-        update customer set customer_wallet_balance = customer_wallet_balance - (select sum(product_price * product_quantity) from cart where customer_id = new.customer_id) where customer_id = new.customer_id;
+        update customer set customer_wallet = customer_wallet - (select sum(product_price * product_quantity) from product where product_id in (select product_id from cart where customer_id = new.customer_id)) where customer_id = new.customer_id;
 end;
-
 
 -- trigger to be executed after an order is placed
-create trigger after_place_order after insert on ORDERS
+create trigger after_order after insert on ORDERS
 for each row
-begin
+begin 
         -- adding all the products from the cart to the all_orders table along with the order id
-        insert into all_orders (order_id, product_id, product_quantity, product_price, customer_id) select new.order_id, product_id, product_quantity, product_price, customer_id from cart where customer_id = new.customer_id;
-        -- update the amount of the order in the orders table from 0 to the actual amount
-        update orders set order_amount = (select sum(product_price * product_quantity) from cart where customer_id = new.customer_id) where order_id = new.order_id;
-        -- delete all products from cart
-        delete from cart where customer_id = new.customer_id;
+        insert into all_orders (order_id, product_id, product_quantity, product_price, customer_id) select new.order_id, (select product_id from cart where customer_id = new.customer_id), (select product_quantity from cart where customer_id = new.customer_id), (select product_price from product where product_id in (select product_id from cart where customer_id = new.customer_id)), new.customer_id from cart where customer_id = new.customer_id;
         -- assigning the delivery_man for the order which was just placed
-        insert into order_delivery_man(delivery_man_id, new.order_id, order_date) select delivery_man_id, new.order_ID, now() from order_delivery_man group by delivery_man_id order by count(*) ASC LIMIT 1;
+        -- insert into order_delivery_man(delivery_man_id, new.order_id, order_date) select delivery_man_id, new.order_ID, now() from order_delivery_man group by delivery_man_id order by count(*) ASC LIMIT 1;
 end;
-
-
 
 -- trigger to be executed after deleting a product
 create trigger delete_product_from_cart after delete on PRODUCT
@@ -132,16 +126,6 @@ begin
         -- check if the product quantity is greater than 0
         if new.product_quantity <= 0 then
                 signal sqlstate '45000' set message_text = 'Product quantity should be greater than 0';
-        end if;
-end;
-
---trigger to be executed before a category is added to the category table
-create trigger add_category before insert on CATEGORY
-for each row
-begin
-        -- check if the category already exists
-        if (select count(*) from category where category_name = new.category_name) > 0 then
-                signal sqlstate '45000' set message_text = 'Category already exists';
         end if;
 end;
 

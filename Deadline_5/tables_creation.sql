@@ -1,5 +1,5 @@
 USE TEST;
--- DROP TABLE IF EXISTS order_delivery_man;
+DROP TABLE IF EXISTS order_delivery_man;
 DROP TABLE IF EXISTS all_orders;
 DROP TABLE IF EXISTS orders;
 DROP TABLE IF EXISTS cart;
@@ -73,9 +73,9 @@ CREATE TABLE orders(
     Order_ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     Customer_ID INT NOT NULL,
     Foreign Key (Customer_ID) REFERENCES customer(Customer_ID),
-    order_DateTime DATETIME NOT NULL,
     order_amount INT NOT NULL DEFAULT 0,
-    Admin_ID INT NOT NULL,
+    order_DateTime DATETIME NOT NULL,
+    Admin_ID INT, 
     Foreign Key (Admin_ID) REFERENCES admin_shop(Admin_ID)
 );
 

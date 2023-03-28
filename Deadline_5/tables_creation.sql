@@ -1,13 +1,13 @@
 USE TEST;
-DROP TABLE IF EXISTS order_delivery_man;
-DROP TABLE IF EXISTS DELIVERY_MAN;
-DROP TABLE IF EXISTS CART;
-DROP TABLE IF EXISTS ORDERS;
-DROP TABLE IF EXISTS PRODUCT;
-DROP TABLE IF EXISTS CUSTOMER;
-DROP TABLE IF EXISTS CATEGORY;
-DROP TABLE IF EXISTS ADMIN_SHOP;
-
+-- DROP TABLE IF EXISTS order_delivery_man;
+DROP TABLE IF EXISTS all_orders;
+DROP TABLE IF EXISTS orders;
+DROP TABLE IF EXISTS cart;
+DROP TABLE IF EXISTS Delivery_Man;
+DROP TABLE IF EXISTS customer;
+DROP TABLE IF EXISTS product;
+DROP TABLE IF EXISTS category;
+DROP TABLE IF EXISTS admin_shop;
 
 CREATE Table admin_shop(
     Admin_ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -83,7 +83,7 @@ CREATE TABLE orders(
 
 -- maintains all the orders in the order history of all customers
 CREATE TABLE all_orders(
-    Order_ID NOT NULL, 
+    Order_ID INT NOT NULL, 
     Foreign Key (Order_ID) REFERENCES orders(Order_ID),
     Product_ID INT NOT NULL,
     Foreign Key (Product_ID) REFERENCES product(Product_ID),
@@ -92,13 +92,13 @@ CREATE TABLE all_orders(
     Customer_ID INT NOT NULL,
     Foreign Key (Customer_ID) REFERENCES customer(Customer_ID),
     PRIMARY KEY (Order_ID, Product_ID, Customer_ID)
-)
+);
 
  
 -- maintains the relation between the delivery man and the order he is delivering
 CREATE TABLE order_delivery_man(
-    delivery_man_id INT NOT NULL, 
-    Foreign Key (delivery_man_id) REFERENCES delivery_man(delivery_man_id),
+    Delivery_Man_ID INT NOT NULL, 
+    Foreign Key (Delivery_man_id) REFERENCES delivery_man(delivery_man_id),
     Order_ID INT NOT NULL,
     Foreign Key (Order_ID) REFERENCES orders(Order_ID),
     delivery_date DATETIME NOT NULL,

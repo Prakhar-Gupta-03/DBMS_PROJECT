@@ -1,5 +1,6 @@
 import mysql.connector
 from mysql.connector import errorcode
+import time
 #connecting to the database
 # db = mysql.connector.connect(host="localhost", user="root", passwd="vartika", database="test")
 db = mysql.connector.connect(host="localhost", user="prakhar", passwd="prakhar", database="test")
@@ -114,17 +115,35 @@ def view_cart(id):
     print("Total quantity: " + str(total_quantity))
     customer_menu(id)
 def add_to_cart(id):
-    print("Please enter the product ID: ")
-    product_id = int(input())
-    print("Please enter the quantity: ")
-    quantity = int(input())
-    cursor.execute("INSERT INTO CART(customer_id, product_id, product_quantity) VALUES (%s, %s, %s)", (id, product_id, quantity))
-    db.commit()  
+    try:
+        print("Please enter the product ID: ")
+        product_id = int(input())
+        print("Please enter the quantity: ")
+        quantity = int(input())
+        cursor.execute("INSERT INTO CART(customer_id, product_id, product_quantity) VALUES (%s, %s, %s)", (id, product_id, quantity))
+        db.commit()
+    except ValueError:
+        print("Invalid input. Please try again.")
+        add_to_cart(id)
+    except mysql.connector.Error as err:
+        print("Error: {}".format(err))
+        text_error = err.msg
+        if (text_error=="Product already exists in cart"):
+            try: 
+                cursor.execute("UPDATE CART SET product_quantity = product_quantity + %s WHERE customer_id = %s AND product_id = %s", (quantity, id, product_id))
+                db.commit()
+            except mysql.connector.Error as err:
+                print("Error: {}".format(err))
 def remove_from_cart(id):
-    print("Please enter the product ID: ")
-    product_id = int(input())
-    cursor.execute("DELETE FROM CART WHERE CUSTOMER_ID = %s AND PRODUCT_ID = %s", (id, product_id))
-    db.commit()
+    try:
+        print("Please enter the product ID: ")
+        product_id = int(input())
+        cursor.execute("DELETE FROM CART WHERE CUSTOMER_ID = %s AND PRODUCT_ID = %s", (id, product_id))
+        db.commit()
+    except ValueError:
+        print("Invalid input. Please try again.")
+    except mysql.connector.Error as err:
+        print("Error: {}".format(err))
 def order_history(id):
     #count the number of orders placed by the customer
     cursor.execute("select count(*) from all_orders where customer_id = %s group by order_id", (id,))
@@ -146,11 +165,66 @@ def order_history(id):
         print("Total price: " + str(total_price))
         print("Total quantity: " + str(total_quantity))
 def place_order(id):
-    cursor.execute("Insert into orders(customer_id, order_datetime) values (%s, now())", (id,))
-    cursor.execute("update orders set order_amount = (select sum(product_price * product_quantity) from product where product_id in (select product_id from cart where customer_id = %s)) where order_id = (select max(order_id) from orders where customer_id = %s)", (id, id))
-    cursor.execute("delete from cart where customer_id = %s", (id,))
-    db.commit()
-    print("Order placed successfully!")
+    try:
+        cursor.execute("INSERT INTO ORDERS(customer_id, order_datetime) VALUES (%s, now())", (id,))
+        db.commit()
+    except mysql.connector.Error as err:
+        print("Error: {}".format(err))
+        return
+    else:
+        try:
+            # find the order_id of the order placed
+            cursor.execute("select order_id from orders where customer_id = %s order by order_id desc limit 1", (id,))
+            res = cursor.fetchall()
+            order_id = res[0][0]
+            # find the total price of the order placed
+            cursor.execute("select sum(product_price * product_quantity) from product where product_id in (select product_id from cart where customer_id = %s)", (id,))
+            res = cursor.fetchall()
+            total_price = res[0][0]
+            # update the order_amount in the orders table
+            cursor.execute("update orders set order_amount = %s where order_id = %s", (total_price, order_id))
+            db.commit()
+        except mysql.connector.Error as err:
+            print("Error: {}".format(err))
+            return
+        else:
+            print("Order placed successfully!")
+    time.sleep(2)
+    print("Processing the order...")
+    # adding all the products from the cart to the all_orders table along with the order_id
+    cursor.execute("select order_id from orders where customer_id = %s order by order_id desc limit 1", (id,))
+    res = cursor.fetchall()
+    order_id = res[0][0]
+    cursor.execute("select product_id, product_quantity from cart where customer_id = %s", (id,))
+    res = cursor.fetchall()
+    for i in res:
+        cursor.execute("insert into all_orders(order_id, customer_id, product_id, product_quantity, product_price) values (%s, %s, %s, %s, (select product_price from product where product_id = %s))", (order_id, id, i[0], i[1], i[0]))
+        db.commit()
+     # removing all the products from the cart
+    cursor.execute("DELETE FROM CART WHERE CUSTOMER_ID = %s", (id,))
+    # pause execution of the program for 1 seconds
+    print("Assigning a delivery man for the order...")
+    time.sleep(2)
+    try:
+        # finding the delivery man with the least number of orders
+        cursor.execute("select delivery_man_id from order_delivery_man group by delivery_man_id order by count(*) ASC LIMIT 1")
+        res = cursor.fetchall()
+        if (len(res) == 0):
+            delivery_id = 1
+        else:
+            delivery_id = res[0][0]
+        # finding the order_id of the order placed
+        cursor.execute("select order_id from orders where customer_id = %s order by order_id desc limit 1", (id,))
+        res = cursor.fetchall()
+        order_id = res[0][0]
+        # assigning the order with order_id to the delivery_man
+        cursor.execute("insert into order_delivery_man(delivery_man_id, order_id, delivery_date) values (%s, %s, now())", (delivery_id, order_id))
+        db.commit()
+        print("Order is assigned to a delivery man successfully!")
+    except mysql.connector.Error as err:
+        print("Error: {}".format(err))
+        return
+
 def change_password(id):
     password = input("Enter new password: ")
     cursor.execute("update customer set customer_password=" + password + " where customer_id=" + id)
@@ -303,7 +377,6 @@ def remove_product():
         cursor.execute("delete from all_orders where product_id = %s", (product_id,))
         cursor.execute("delete from product where product_id = %s", (product_id,))
         db.commit()
-
 def remove_category():
     category_name = input("Enter category name: ")
     # check if category exists

@@ -11,6 +11,10 @@ begin
         if (select product_quantity from product where product_id = new.product_id) <= 0 then
                 signal sqlstate '45000' set message_text = 'Product out of stock';
         end if;
+        -- check if product quantity is valid
+        if new.product_quantity <= 0 then
+                signal sqlstate '45000' set message_text = 'Invalid product quantity';
+        end if;
         -- check if product quantity is greater than available quantity
         if (select product_quantity from product where product_id = new.product_id) < new.product_quantity then
                 signal sqlstate '45000' set message_text = 'Product quantity greater than available quantity';
@@ -19,11 +23,25 @@ begin
         if (select count(*) from cart where product_id = new.product_id and customer_id = new.customer_id) > 0 then
                 signal sqlstate '45000' set message_text = 'Product already exists in cart';
         end if;
-        -- update product quantity in product table
-        update product set product_quantity = product_quantity - new.product_quantity where product_id = new.product_id;
 end;
 
-
+-- trigger to be executed before the product quantity is increased in the cart
+create trigger increase_quantity before update on CART
+for each row
+begin
+        -- check if product exists
+        if (select count(*) from product where product_id = new.product_id) = 0 then
+                signal sqlstate '45000' set message_text = 'Product does not exist';
+        end if;
+        -- check if product is out of stock
+        if (select product_quantity from product where product_id = new.product_id) <= 0 then
+                signal sqlstate '45000' set message_text = 'Product out of stock';
+        end if;
+        -- check if product quantity is greater than available quantity
+        if (select product_quantity from product where product_id = new.product_id) < new.product_quantity + (select product_quantity from cart where product_id = new.product_id and customer_id = new.customer_id) then
+                signal sqlstate '45000' set message_text = 'Product quantity greater than available quantity';
+        end if;
+end;
 
 -- trigger to be executed before a product is removed from a cart for a particular customer
 create trigger remove_from_cart before delete on CART
@@ -42,8 +60,6 @@ begin
         if (select count(*) from customer where customer_id = old.customer_id) = 0 then
                 signal sqlstate '45000' set message_text = 'Customer does not exist';
         end if;
-        -- update product quantity in product table
-        update product set product_quantity = product_quantity + old.product_quantity where product_id = old.product_id;
 end;
 
 
@@ -66,16 +82,6 @@ begin
         end if;
         -- update customer wallet balance
         update customer set customer_wallet = customer_wallet - (select sum(product_price * product_quantity) from product where product_id in (select product_id from cart where customer_id = new.customer_id)) where customer_id = new.customer_id;
-end;
-
--- trigger to be executed after an order is placed
-create trigger after_order after insert on ORDERS
-for each row
-begin 
-        -- adding all the products from the cart to the all_orders table along with the order id
-        insert into all_orders (order_id, product_id, product_quantity, product_price, customer_id) select new.order_id, (select product_id from cart where customer_id = new.customer_id), (select product_quantity from cart where customer_id = new.customer_id), (select product_price from product where product_id in (select product_id from cart where customer_id = new.customer_id)), new.customer_id from cart where customer_id = new.customer_id;
-        -- assigning the delivery_man for the order which was just placed
-        -- insert into order_delivery_man(delivery_man_id, new.order_id, order_date) select delivery_man_id, new.order_ID, now() from order_delivery_man group by delivery_man_id order by count(*) ASC LIMIT 1;
 end;
 
 -- trigger to be executed before a product is added to the product table

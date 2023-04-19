@@ -258,7 +258,7 @@ def customer_menu(id):
     print("5. Remove from cart")
     print("6. Place order")
     print("7. Change password")
-    print("8. Change wallet balance")
+    print("8. Add wallet balance")
     print("9. Order history")
     print("10. Check the details of the assigned delivery man")
     print("11. Exit")

@@ -1,7 +1,7 @@
 import mysql.connector
 from mysql.connector import errorcode
 #connecting to the database
-db = mysql.connector.connect(host="localhost", user="prakhar", passwd="prakhar", database="test")
+db = mysql.connector.connect(host="localhost", user="root", passwd="vartika", database="test")
 cursor = db.cursor()
 def starting_menu():
     print("Hello! Welcome to the retail store database management system.")
@@ -58,7 +58,7 @@ def delivery_man_verification():
 def admin_verification():
     print("please enter your admin ID:")
     id = int(input())
-    cursor.execute("Select * from admin where admin_id = %s", (id,))
+    cursor.execute("Select * from admin_shop where admin_id = %s", (id,))
     res = cursor.fetchall()
     if len(res) == 0:
         print("Invalid admin ID. Please try again.")

@@ -97,7 +97,7 @@ def view_categories():
     cursor.execute("SELECT * FROM CATEGORY")
     res = cursor.fetchall()
     for i in res:
-        print("Category ID: " + str(i[0]) + " Category name: " + str(i[1]))
+        print("Category ID: " + str(i[1]) + " Category name: " + str(i[2]))
 def view_cart(id):
     cursor.execute("SELECT * FROM CART WHERE CUSTOMER_ID = %s", (id,))
     res = cursor.fetchall()
@@ -270,16 +270,18 @@ def delivery_man_menu(id):
         print("Invalid choice. Please try again.")
         delivery_man_menu(id)
     delivery_man_menu(id)
-def add_product():
+def add_product(id):
+    Admin_ID = id
     product_name = input("Enter product name: ")
     product_price = int(input("Enter product price: "))
     product_quantity = int(input("Enter product quantity: "))
-    product_category = input("Enter product category: ")
-    cursor.execute("insert into product (product_name, product_price, product_quantity, product_category) values (%s, %s, %s, %s)", (product_name, product_price, product_quantity, product_category))
+    Category_ID = input("Enter product category: ")
+    cursor.execute("insert into product (product_name, product_price, product_quantity, Category_ID, Admin_ID) values (%s, %s, %s, %s, %s)", (product_name, product_price, product_quantity, Category_ID, Admin_ID,))
     db.commit()
-def add_category():
+def add_category(id):
+    Admin_ID = id
     category_name = input("Enter category name: ")
-    cursor.execute("insert into category (category_name) values (%s)", (category_name,))
+    cursor.execute("insert into category (category_name,Admin_ID) values (%s, %s)", (category_name,Admin_ID,))
     db.commit()
 def remove_product():
     product_id = int(input("Enter product ID: "))
@@ -330,9 +332,9 @@ def admin_menu(id):
     elif choice == 2:
         view_categories()
     elif choice == 3:
-        add_product()
+        add_product(id)
     elif choice == 4:
-        add_category()
+        add_category(id)
     elif choice == 5:
         remove_product()
     elif choice == 6:

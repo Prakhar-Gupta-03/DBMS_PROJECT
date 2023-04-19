@@ -9,6 +9,8 @@ GROUP BY c.Category_Name, Date
 ORDER BY Date, Sales DESC;
 
 
+
+
 -- Top selling products by category
 SELECT c.Category_Name, p.product_name,
        SUM(all_orders.product_quantity) AS Total_Quantity_Sold
@@ -17,6 +19,7 @@ JOIN product p ON c.Category_ID = p.Category_ID
 JOIN all_orders ON p.Product_ID = all_orders.Product_ID
 GROUP BY c.Category_Name, p.product_name
 ORDER BY Total_Quantity_Sold DESC;
+e
 
 
 -- Revenue by customer location
@@ -26,6 +29,7 @@ FROM customer
 JOIN all_orders ON customer.Customer_ID = all_orders.Customer_ID
 JOIN product p ON all_orders.Product_ID = p.Product_ID
 GROUP BY Customer_Address_City,
+
 
 
 --  total revenue by month and category

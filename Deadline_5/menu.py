@@ -344,7 +344,7 @@ def admin_menu(id):
     elif choice == 8:
         change_product_quantity()
     elif choice == 9:
-        change_password(id)
+        change_admin_password(id)
     elif choice == 10:
         exit()
     elif choice == 11:

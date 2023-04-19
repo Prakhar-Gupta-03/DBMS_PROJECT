@@ -1,7 +1,8 @@
 import mysql.connector
 from mysql.connector import errorcode
 #connecting to the database
-db = mysql.connector.connect(host="localhost", user="root", passwd="vartika", database="test")
+# db = mysql.connector.connect(host="localhost", user="root", passwd="vartika", database="test")
+db = mysql.connector.connect(host="localhost", user="prakhar", passwd="prakhar", database="test")
 cursor = db.cursor()
 def starting_menu():
     print("Hello! Welcome to the retail store database management system.")
@@ -276,42 +277,81 @@ def add_product(id):
     product_price = int(input("Enter product price: "))
     product_quantity = int(input("Enter product quantity: "))
     Category_ID = input("Enter product category: ")
-    cursor.execute("insert into product (product_name, product_price, product_quantity, Category_ID, Admin_ID) values (%s, %s, %s, %s, %s)", (product_name, product_price, product_quantity, Category_ID, Admin_ID,))
-    db.commit()
+    try: 
+        cursor.execute("insert into product (product_name, product_price, product_quantity, Category_ID, Admin_ID) values (%s, %s, %s, %s, %s)", (product_name, product_price, product_quantity, Category_ID, Admin_ID,))
+        db.commit()
+    except mysql.connector.Error as err: 
+        print("Error: {}".format(err.msg))
 def add_category(id):
     Admin_ID = id
     category_name = input("Enter category name: ")
-    cursor.execute("insert into category (category_name,Admin_ID) values (%s, %s)", (category_name,Admin_ID,))
-    db.commit()
+    try:
+        cursor.execute("insert into category (category_name,Admin_ID) values (%s, %s)", (category_name,Admin_ID,))
+        db.commit()
+    except mysql.connector.Error as err:
+        print("Error: {}".format(err.msg))
 def remove_product():
     product_id = int(input("Enter product ID: "))
-    cursor.execute("delete from product where product_id = %s", (product_id,))
-    db.commit()
+    # check if product exists
+    cursor.execute("select product_id from product where product_id = %s", (product_id,))
+    res = cursor.fetchall()
+    if len(res) == 0:
+        print("Error: Product does not exist")
+    else:
+        # remove the product from the cart
+        cursor.execute("delete from cart where product_id = %s", (product_id,))
+        cursor.execute("delete from all_orders where product_id = %s", (product_id,))
+        cursor.execute("delete from product where product_id = %s", (product_id,))
+        db.commit()
+
 def remove_category():
     category_name = input("Enter category name: ")
-    cursor.execute("delete from category where category_name = %s", (category_name,))
-    db.commit()
+    # check if category exists
+    cursor.execute("select category_id from category where category_name = %s", (category_name,))
+    res = cursor.fetchall()
+    if len(res) == 0:
+        print("Error: Category does not exist")
+    else:
+        # remove all the products in the category
+        cursor.execute("select product_id from product where Category_ID = %s", (res[0][0],))
+        res = cursor.fetchall()
+        for i in res:
+            # remove the products from the cart
+            cursor.execute("delete from cart where product_id = %s", (i[0],))
+            cursor.execute("delete from all_orders where product_id = %s", (i[0],))
+            cursor.execute("delete from product where product_id = %s", (i[0],))
+        # remove the category
+        cursor.execute("delete from category where category_name = %s", (category_name,))
+        db.commit()
 def change_product_price():
     product_id = int(input("Enter product ID: "))
     product_price = int(input("Enter new product price: "))
     if (product_price < 0):
         print("Invalid price. Please try again.")
-        change_product_price()
     else:
-        cursor.execute("update product set product_price = %s where product_id = %s", (product_price, product_id))
-        db.commit()
+        try:
+            cursor.execute("update product set product_price = %s where product_id = %s", (product_price, product_id))
+            db.commit()
+        except mysql.connector.Error as err:
+            print("Error: {}".format(err.msg))
 def change_product_quantity():
     product_id = int(input("Enter product ID: "))
     product_quantity = int(input("Enter new product quantity: "))
     if (product_quantity < 0):
         print("Invalid quantity. Please try again.")
-        change_product_quantity()
     else:
-        cursor.execute("update product set product_quantity = %s where product_id = %s", (product_quantity, product_id))
-        db.commit()
+        try:
+            cursor.execute("update product set product_quantity = %s where product_id = %s", (product_quantity, product_id))
+            db.commit()
+        except mysql.connector.Error as err:
+            print("Error: {}".format(err.msg))
 def change_admin_password(id):
     password = input("Enter new password: ")
-    cursor.execute("update admin_shop set admin_password = %s where admin_id = %s", (password, id))
+    try:
+        cursor.execute("update admin_shop set admin_password = %s where admin_id = %s", (password, id))
+        db.commit()
+    except mysql.connector.Error as err:
+        print("Error: {}".format(err.msg))
 def admin_menu(id):
     print("Hello! Welcome to the admin menu")
     print("Please select an option from the following:")

@@ -78,35 +78,6 @@ begin
         -- insert into order_delivery_man(delivery_man_id, new.order_id, order_date) select delivery_man_id, new.order_ID, now() from order_delivery_man group by delivery_man_id order by count(*) ASC LIMIT 1;
 end;
 
--- trigger to be executed after deleting a product
-create trigger delete_product_from_cart after delete on PRODUCT
-for each row
-begin 
-        -- check if the product exists in the cart
-        if (select count(*) from cart where product_id = old.product_id) > 0 then
-                -- delete the product from the cart
-                delete from cart where product_id = old.product_id;
-        end if;
-
-        -- check if the product exists in the orders
-        if (select count(*) from all_orders where product_id = old.product_id) > 0 then
-                -- delete the product from the orders
-                delete from all_orders where product_id = old.product_id;
-        end if;
-end;
-
--- trigger to be executed after deleting a category
-create trigger delete_category_from_cart after delete on CATEGORY
-for each row
-begin 
-        -- check if the category exists in the product
-        if (select count(*) from product where category_id = old.category_id) > 0 then
-                -- delete all the products in that category
-                delete from product where category_id = old.category_id;
-                delete from cart where product_id in (select product_id from product where category_id = old.category_id);
-        end if;
-end;
-
 -- trigger to be executed before a product is added to the product table
 create trigger add_product before insert on PRODUCT
 for each row
@@ -129,43 +100,12 @@ begin
         end if;
 end;
 
--- trigger to be executed before a product is deleted in the product table
-create trigger delete_product before delete on PRODUCT
+-- trigger to be executed before a category is added to the category table
+create trigger add_category before insert on CATEGORY
 for each row
 begin
-        -- check if the product exists
-        if (select count(*) from product where product_id = old.product_id) = 0 then
-                signal sqlstate '45000' set message_text = 'Product does not exist';
-        end if;
-        -- check if the product exists in the cart
-        if (select count(*) from cart where product_id = old.product_id) > 0 then
-                -- delete the product from the cart
-                delete from cart where product_id = old.product_id;
-        end if;
-end;
-
--- trigger to be executed before a category is deleted in the category table
-create trigger delete_category before delete on CATEGORY
-for each row
-begin
-        -- check if the category exists
-        if (select count(*) from category where category_id = old.category_id) = 0 then
-                signal sqlstate '45000' set message_text = 'Category does not exist';
-        end if;
-        -- for each product in the category delete the product from the cart
-        if (select count(*) from product where category_id = old.category_id) > 0 then
-                delete from cart where product_id in (select product_id from product where category_id = old.category_id);
-        end if;
-        -- delete all the products in that category
-        delete from product where category_id = old.category_id;
-end;
-
--- trigger to be executed before a product is updated in the product table
-create trigger update_product before update on PRODUCT
-for each row
-begin
-        -- check if the product exists
-        if (select count(*) from product where product_id = new.product_id) = 0 then
-                signal sqlstate '45000' set message_text = 'Product does not exist';
+        -- check if the category already exists
+        if (select count(*) from category where category_name = new.category_name) > 0 then
+                signal sqlstate '45000' set message_text = 'Category already exists';
         end if;
 end;

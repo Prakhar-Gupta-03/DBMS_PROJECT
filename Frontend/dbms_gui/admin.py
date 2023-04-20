@@ -1,9 +1,10 @@
 import sys
-from PyQt5.QtWidgets import QApplication, QMainWindow, QLabel, QPushButton, QVBoxLayout, QWidget, QStackedWidget
-
+from PyQt5.QtWidgets import QApplication, QMainWindow, QLabel, QPushButton, QVBoxLayout, QWidget, QStackedWidget, \
+    QTableView
+import functions
 class admin(QWidget):
-    def __init__(self, parent=None):
-        super().__init__(parent)
+    def __init__(self):
+        super().__init__()
         layout = QVBoxLayout(self)
         self.label = QLabel("Admin")
         layout.addWidget(self.label)
@@ -43,10 +44,12 @@ class admin(QWidget):
 
 
     #     button click events:
-        self.exit_button.clicked.connect(self.exit_application)
+    #         self.exit_button.clicked.connect(functions.exit_application)
+    #         # view = functions.view_products(self)
+    #         self.view_products_button.clicked.connect(functions.view_products(self).show)
+        # self.view_products_button.clicked.connect(view.show())
 
 
     #     buttons functions:
 
-    def exit_application(self):
-        QApplication.quit()
+

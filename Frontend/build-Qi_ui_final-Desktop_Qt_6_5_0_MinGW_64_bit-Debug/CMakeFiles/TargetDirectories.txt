@@ -1,0 +1,9 @@
+C:/Users/Vartika/Documents/GitHub/DBMS_PROJECT/Frontend/build-Qi_ui_final-Desktop_Qt_6_5_0_MinGW_64_bit-Debug/CMakeFiles/Qi_ui_final.dir
+C:/Users/Vartika/Documents/GitHub/DBMS_PROJECT/Frontend/build-Qi_ui_final-Desktop_Qt_6_5_0_MinGW_64_bit-Debug/CMakeFiles/edit_cache.dir
+C:/Users/Vartika/Documents/GitHub/DBMS_PROJECT/Frontend/build-Qi_ui_final-Desktop_Qt_6_5_0_MinGW_64_bit-Debug/CMakeFiles/rebuild_cache.dir
+C:/Users/Vartika/Documents/GitHub/DBMS_PROJECT/Frontend/build-Qi_ui_final-Desktop_Qt_6_5_0_MinGW_64_bit-Debug/CMakeFiles/list_install_components.dir
+C:/Users/Vartika/Documents/GitHub/DBMS_PROJECT/Frontend/build-Qi_ui_final-Desktop_Qt_6_5_0_MinGW_64_bit-Debug/CMakeFiles/install.dir
+C:/Users/Vartika/Documents/GitHub/DBMS_PROJECT/Frontend/build-Qi_ui_final-Desktop_Qt_6_5_0_MinGW_64_bit-Debug/CMakeFiles/install/local.dir
+C:/Users/Vartika/Documents/GitHub/DBMS_PROJECT/Frontend/build-Qi_ui_final-Desktop_Qt_6_5_0_MinGW_64_bit-Debug/CMakeFiles/install/strip.dir
+C:/Users/Vartika/Documents/GitHub/DBMS_PROJECT/Frontend/build-Qi_ui_final-Desktop_Qt_6_5_0_MinGW_64_bit-Debug/CMakeFiles/Qi_ui_final_autogen_timestamp_deps.dir
+C:/Users/Vartika/Documents/GitHub/DBMS_PROJECT/Frontend/build-Qi_ui_final-Desktop_Qt_6_5_0_MinGW_64_bit-Debug/CMakeFiles/Qi_ui_final_autogen.dir

@@ -3,9 +3,7 @@ from mysql.connector import errorcode
 import time
 import datetime
 # connecting to the database
-# db = mysql.connector.connect(host="localhost", user="root", passwd="vartika", database="test")
-db = mysql.connector.connect(
-    host="localhost", user="prakhar", passwd="prakhar", database="test")
+db = mysql.connector.connect(host="localhost", user="root", passwd="vartika", database="test")
 cursor = db.cursor()
 
 
@@ -374,7 +372,7 @@ def delivery_man_details(id):
     return
 
 
-def view_profile(id):
+def view_profile_customer(id):
     cursor.execute("select * from customer where customer_id = %s", (id,))
     res = cursor.fetchall()
     print("Customer ID: " + str(id))
@@ -429,7 +427,7 @@ def customer_menu(id):
     elif choice == 10:
         delivery_man_details(id)
     elif choice == 11:
-        view_profile(id)
+        view_profile_customer(id)
     elif choice == 12: 
         exit()
     elif choice == 13:
@@ -639,6 +637,7 @@ def change_product_quantity():
             print("Error: {}".format(err.msg))
 
 
+
 def change_admin_password(id):
     password = input("Enter new password: ")
     try:
@@ -649,6 +648,199 @@ def change_admin_password(id):
         print("Error: {}".format(err.msg))
 
 
+def total_sales_for_each_product(id):
+    try:
+        cursor.execute("select product.product_name, sum(all_orders.product_quantity) from all_orders join product where product.product_ID = all_orders.product_ID group by product.product_ID order by sum(all_orders.product_quantity) desc")
+        res = cursor.fetchall()
+        print("Total sales for each product: ")
+        print("Total Sales\t\t\tProduct Name")
+        for i in res:
+            print(i[1], "\t\t\t\t", i[0])
+    except mysql.connector.Error as err:
+        print("Error: {}".format(err.msg))
+
+
+def total_sales_for_each_category(id):
+    try: 
+        cursor.execute("select category.category_name, sum(all_orders.product_quantity) from all_orders join product join category where product.product_ID = all_orders.product_ID and product.Category_ID = category.category_ID group by category.category_ID order by sum(all_orders.product_quantity) desc")
+        res = cursor.fetchall()
+        print("Total sales for each category: ")
+        print("Total Sales\t\t\tCategory Name")
+        for i in res:
+            print(i[1], "\t\t\t\t", i[0])
+    except mysql.connector.Error as err:
+        print("Error: {}".format(err.msg))
+
+
+def arranging_customers_by_total_amount_spent(id):
+    try: 
+        cursor.execute("select customer.customer_fname, sum(all_orders.product_quantity * product.product_price) from all_orders join product join customer where product.product_ID = all_orders.product_ID and all_orders.customer_ID = customer.customer_ID group by customer.customer_ID order by sum(all_orders.product_quantity * product.product_price) desc")
+        res = cursor.fetchall()
+        print("Arranging the customers by the total amount spent: ")
+        print("Total Amount Spent\t\t\tCustomer Name")
+        for i in res:
+            print(i[1], "\t\t\t\t", i[0])
+    except mysql.connector.Error as err:
+        print("Error: {}".format(err.msg))
+
+
+def customer_retention_rate(id):
+    try: 
+        cursor.execute("select customer.customer_fname, count(all_orders.order_ID) from all_orders join customer where all_orders.customer_ID = customer.customer_ID group by customer.customer_ID order by count(all_orders.order_ID) desc")
+        res = cursor.fetchall()
+        # count number of customers with more than 1 order
+        count = 0
+        for i in res:
+            if i[1] > 1:
+                count += 1
+        print("Number of customers with more than 1 order: ", count)
+        print("Total number of unique customers: ", len(res))
+        print("Customer retention rate: ", count/len(res))
+    except mysql.connector.Error as err:
+        print("Error: {}".format(err.msg))
+
+
+def average_amount_spent_by_customer(id):
+    try: 
+        cursor.execute("select customer.customer_fname, sum(all_orders.product_quantity * product.product_price) from all_orders join product join customer where product.product_ID = all_orders.product_ID and all_orders.customer_ID = customer.customer_ID group by customer.customer_ID order by sum(all_orders.product_quantity * product.product_price) desc")
+        res = cursor.fetchall()
+        # find the total amount spent by all customers
+        total = 0
+        for i in res:
+            total += i[1]
+        print("Total amount spent by all customers: ", total)
+        # find the total number of unique orders
+        cursor.execute("select count(distinct order_ID) from all_orders")
+        res = cursor.fetchall()
+        print("Total number of unique orders: ", res[0][0])
+        print("Average amount spent by the customer: ", total/res[0][0])
+    except mysql.connector.Error as err:
+        print("Error: {}".format(err.msg))
+
+
+def total_revenue_by_month(id):
+    try: 
+        cursor.execute("select monthname(orders.order_datetime), sum(all_orders.product_quantity * product.product_price) from all_orders join product join orders where product.product_ID = all_orders.product_ID and all_orders.order_ID = orders.order_ID group by monthname(orders.order_datetime) order by monthname(orders.order_datetime)")
+        res = cursor.fetchall()
+        print("Total revenue by the month: ")
+        print("Month\t\t\tTotal Revenue")
+        for i in res:
+            print(i[0], "\t\t\t\t", i[1])
+    except mysql.connector.Error as err:
+        print("Error: {}".format(err.msg))
+
+
+def total_number_of_products_sold_by_month(id):
+    try: 
+        cursor.execute("select monthname(orders.order_datetime), sum(all_orders.product_quantity) from all_orders join orders where all_orders.order_ID = orders.order_ID group by monthname(orders.order_datetime) order by monthname(orders.order_datetime)")
+        res = cursor.fetchall()
+        print("Total number of products sold by the month: ")
+        print("Month\t\t\tTotal Number of Products Sold")
+        for i in res:
+            print(i[0], "\t\t\t\t", i[1])
+    except mysql.connector.Error as err:
+        print("Error: {}".format(err.msg))
+
+
+def total_revenue_by_month_and_category(id):
+    try: 
+        cursor.execute("select monthname(orders.order_datetime), category.category_name, sum(all_orders.product_quantity * product.product_price) from all_orders join product join orders join category where product.product_ID = all_orders.product_ID and all_orders.order_ID = orders.order_ID and product.Category_ID = category.category_ID group by monthname(orders.order_datetime), category.category_name order by monthname(orders.order_datetime), category.category_name")
+        res = cursor.fetchall()
+        print("Total revenue by the month and the category: ")
+        print("Month\t\t\tTotal Revenue\t\t\tCategory Name")
+        for i in res:
+            print(i[0], "\t\t\t\t", i[2], "\t\t\t\t", i[1])
+    except mysql.connector.Error as err:
+        print("Error: {}".format(err.msg))
+
+
+def revenue_by_customer_location(id):
+    try: 
+        cursor.execute("select customer.customer_address_city, sum(all_orders.product_quantity * product.product_price) from all_orders join product join customer where product.product_ID = all_orders.product_ID and all_orders.customer_ID = customer.customer_ID group by customer.customer_address_city order by sum(all_orders.product_quantity * product.product_price) desc")
+        res = cursor.fetchall()
+        print("Revenue by the customer location: ")
+        print("Total Revenue\t\t\tCustomer City")
+        for i in res:
+            print(i[1], "\t\t\t\t", i[0])
+    except mysql.connector.Error as err:
+        print("Error: {}".format(err.msg))
+
+
+def top_selling_product_by_category(id):
+    try: 
+        cursor.execute("select category.category_name, product.product_name, sum(all_orders.product_quantity) from all_orders join product join category where product.product_ID = all_orders.product_ID and product.Category_ID = category.category_ID group by product.product_ID order by category.category_name, sum(all_orders.product_quantity) desc")
+        res = cursor.fetchall()
+        print("Top selling products by category: ")
+        print("Total Number of Products Sold\t\t\tProduct Name\t\t\tCategory Name")
+        for i in res:
+            print(i[2], "\t\t\t\t", i[1], "\t\t\t\t", i[0])
+    except mysql.connector.Error as err:
+        print("Error: {}".format(err.msg))
+
+def aggregate_sales_by_category_and_date(id):
+    try: 
+        cursor.execute("select category.category_name, monthname(orders.order_datetime), sum(all_orders.product_quantity * product.product_price) from all_orders join product join orders join category where product.product_ID = all_orders.product_ID and all_orders.order_ID = orders.order_ID and product.Category_ID = category.category_ID group by category.category_name, monthname(orders.order_datetime) order by category.category_name, monthname(orders.order_datetime)")
+        res = cursor.fetchall()
+        print("Aggregate sales by category and date, and the total sales amount for each category and month: ")
+        print("Month\t\t\tTotal Revenue\t\t\tCategory Name")
+        for i in res:
+            print(i[1], "\t\t\t\t", i[2], "\t\t\t\t", i[0])
+    except mysql.connector.Error as err:
+        print("Error: {}".format(err.msg))
+
+
+def data_statistics(id):
+    print("Welcome to the data statistics menu")
+    print("Please select an option from the following:")
+    print("1. Aggregate sales by category and date, and the total sales amount for each category and month")
+    print("2. Top selling products by category")
+    print("3. Revenue by the customer location")
+    print("4. Total revenue by the month and the category")
+    print("5. Average amount spent by the customer")
+    print("6. Total number of products sold by the month")
+    print("7. Total revenue by the month")
+    print("8. Total sales for each product")
+    print("9. Total sales for each category")
+    print("10. Arranging the customers by the total amount spent")
+    print("11. Customer retention rate")
+    print("12. Exit")
+    print("13. Go Back")
+    try: 
+        choice = int(input("Enter your choice: "))
+    except ValueError:
+        print("Invalid input. Please try again.")
+        data_statistics(id)
+    if choice == 1:
+        aggregate_sales_by_category_and_date(id)
+    elif choice == 2:
+        top_selling_product_by_category(id)
+    elif choice == 3:
+        revenue_by_customer_location(id)
+    elif choice == 4:
+        total_revenue_by_month_and_category(id)
+    elif choice == 5:
+        average_amount_spent_by_customer(id)
+    elif choice == 6:
+        total_number_of_products_sold_by_month(id)
+    elif choice == 7:
+        total_revenue_by_month(id)
+    elif choice == 8:
+        total_sales_for_each_product(id)
+    elif choice == 9:
+        total_sales_for_each_category(id)
+    elif choice == 10:
+        arranging_customers_by_total_amount_spent(id)
+    elif choice == 11:
+        customer_retention_rate(id)
+    elif choice == 12:
+        exit()
+    elif choice == 13:
+        admin_menu(id)
+    else:
+        print("Invalid input. Please try again.")
+        data_statistics(id)
+    data_statistics(id)
+        
 def admin_menu(id):
     print("Hello! Welcome to the admin menu")
     print("Please select an option from the following:")
@@ -661,8 +853,9 @@ def admin_menu(id):
     print("7. Change product price")
     print("8. Change product quantity")
     print("9. Change password")
-    print("10. Exit")
-    print("11. Go Back")
+    print("10. Data Statistics")
+    print("11. Exit")
+    print("12. Go Back")
     choice = int(input("Enter your choice: "))
     if choice == 1:
         view_products()
@@ -683,8 +876,10 @@ def admin_menu(id):
     elif choice == 9:
         change_admin_password(id)
     elif choice == 10:
-        exit()
+        data_statistics(id)
     elif choice == 11:
+        exit()
+    elif choice == 12:
         starting_menu()
     else:
         print("Invalid choice. Please try again.")

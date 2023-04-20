@@ -19,7 +19,6 @@ JOIN product p ON c.Category_ID = p.Category_ID
 JOIN all_orders ON p.Product_ID = all_orders.Product_ID
 GROUP BY c.Category_Name, p.product_name
 ORDER BY Total_Quantity_Sold DESC;
-e
 
 
 -- Revenue by customer location

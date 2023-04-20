@@ -1,8 +1,8 @@
 import mysql.connector
 from mysql.connector import errorcode
 #connecting to the database
-# db = mysql.connector.connect(host="localhost", user="root", passwd="vartika", database="test")
-db = mysql.connector.connect(host="localhost", user="prakhar", passwd="prakhar", database="test")
+db = mysql.connector.connect(host="localhost", user="root", passwd="vartika", database="test")
+# db = mysql.connector.connect(host="localhost", user="prakhar", passwd="prakhar", database="test")
 cursor = db.cursor()
 def starting_menu():
     print("Hello! Welcome to the retail store database management system.")

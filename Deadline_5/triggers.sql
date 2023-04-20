@@ -77,11 +77,11 @@ begin
                 signal sqlstate '45000' set message_text = 'Cart is empty';
         end if;
         -- check if the customer has enough money to place the order
-        if (select customer_wallet from customer where customer_id =new.customer_id) < (select sum(product_price * product_quantity) from product where product_id in (select product_id from cart where customer_id = new.customer_id)) then
+        if (select customer_wallet from customer where customer_id =new.customer_id) < (select sum (product.product_price * cart.product_quantity) from product inner join cart on product.product_id = cart.product_id where cart.customer_id = new.customer_id) then
                 signal sqlstate '45000' set message_text = 'Insufficient funds';
         end if;
         -- update customer wallet balance
-        update customer set customer_wallet = customer_wallet - (select sum(product_price * product_quantity) from product where product_id in (select product_id from cart where customer_id = new.customer_id)) where customer_id = new.customer_id;
+        update customer set customer_wallet = customer_wallet - (select sum (product.product_price * cart.product_quantity) from product inner join cart on product.product_id = cart.product_id where cart.customer_id = new.customer_id) where customer_id = new.customer_id;
 end;
 
 -- trigger to be executed before a product is added to the product table

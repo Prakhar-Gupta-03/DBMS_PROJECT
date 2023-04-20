@@ -56,9 +56,8 @@ def customer_verification():
 
 
 def delivery_man_verification():
-    print("Please enter your delivery ID:")
-    id = int(input())
-    cursor.execute("Select * from delivery_man where delivery_id = %s", (id,))
+    id = int(input("Enter your delivery man ID: "))
+    cursor.execute("Select * from delivery_man where delivery_man_id = %s", (id,))
     res = cursor.fetchall()
     if len(res) == 0:
         print("Invalid delivery ID. Please try again.")
@@ -374,6 +373,7 @@ def delivery_man_details(id):
         print(str(current_order_id) + "\t\t\t" + str(res2[0][0]) + "\t\t\t" + str(delivery_date) + "\t\t\t" + str(res2[0][2]) + "\t\t\t" + str(res2[0][1]))
     return
 
+
 def view_profile(id):
     cursor.execute("select * from customer where customer_id = %s", (id,))
     res = cursor.fetchall()
@@ -444,40 +444,74 @@ def view_orders_to_be_delivered(id):
     cursor.execute(
         "select order_id from order_delivery_man where delivery_man_id = %s", (id,))
     res = cursor.fetchall()
+    print("Order ID\tCustomer ID\tOrder Date\tTotal Price\tTotal Quantity")
     for i in res:
-        cursor.execute(
-            "select order_id, order_datetime, order_amount, customer_id from orders where order_id = %s", (i[0],))
+        # fetch the order details for each order_id
+        cursor.execute("select * from orders where order_id = %s", (i[0],))
         res1 = cursor.fetchall()
-        print("Order ID: " + str(res1[0][0]))
-        print("Order date and time: " + str(res1[0][1]))
-        print("Order amount: " + str(res1[0][2]))
-        print("Customer ID: " + str(res1[0][3]))
+        # compute the total price of the order
+        cursor.execute("select product_price, product_quantity from all_orders where order_id = %s", (i[0],))
+        res2 = cursor.fetchall()
+        total_price = 0
+        total_quantity = 0
+        for j in res2:
+            total_price += j[0] * j[1]
+            total_quantity += j[1]
+        print(str(res1[0][0]) + "\t\t" + str(res1[0][1]) + "\t\t" + str(res1[0][2]) + "\t\t" + str(total_price) + "\t\t" + str(total_quantity))
 
 
 def view_customer_details_for_order(id):
-    print("Enter the order ID for which you want to view the customer details: ")
-    order_id = int(input())
-    cursor.execute(
-        "select customer_id from orders where order_id = %s", (order_id,))
-    res = cursor.fetchall()
-    customer_id = res[0][0]
-    cursor.execute("select customer_fname, customer_lname, customer_contact_number, customer_address_buildingno, customer_address_street, customer_address_city, customer_address_state, customer_address_pincode from customer where customer_id = %s", (customer_id,))
-    res = cursor.fetchall()
-    print("Customer first name: " + str(res[0][0]))
-    print("Customer last name: " + str(res[0][1]))
-    print("Customer contact number: " + str(res[0][2]))
-    print("Customer address building number: " + str(res[0][3]))
-    print("Customer address street: " + str(res[0][4]))
-    print("Customer address city: " + str(res[0][5]))
-    print("Customer address state: " + str(res[0][6]))
-    print("Customer address pincode: " + str(res[0][7]))
+    try: 
+        order_id = int(input("Enter the order ID for which you want to view the customer details: "))
+    except ValueError:
+        print("Invalid order ID. Please try again.")
+        view_customer_details_for_order(id)
+    else:
+        # check whether the order_id has a relation with the delivery man
+        cursor.execute("select * from order_delivery_man where order_id = %s and delivery_man_id = %s", (order_id, id))
+        res = cursor.fetchall()
+        if (len(res) == 0):
+            print("Invalid order ID. Please try again.")
+            view_customer_details_for_order(id)
+        else:
+            cursor.execute(
+                "select customer_id from orders where order_id = %s", (order_id,))
+            res = cursor.fetchall()
+            customer_id = res[0][0]
+            cursor.execute("select customer_fname, customer_lname, customer_contact_number, customer_address_buildingno, customer_address_street, customer_address_city, customer_address_state, customer_address_pincode from customer where customer_id = %s", (customer_id,))
+            res = cursor.fetchall()
+            print("Customer first name: " + str(res[0][0]))
+            print("Customer last name: " + str(res[0][1]))
+            print("Customer contact number: " + str(res[0][2]))
+            print("Customer Address: " + str(res[0][3]) + ", " + res[0][4] + ", " + res[0][5] + ", " + res[0][6])
+            print("Customer Pincode: " + str(res[0][7]))
 
 
 def change_delivery_man_password(id):
-    password = input("Enter new password: ")
-    cursor.execute(
-        "update delivery_man set man_pass = %s where delivery_man_id = %s", (password, id))
-    db.commit()
+    try: 
+        password = input("Enter new password: ")
+        cursor.execute("update delivery_man set man_pass = %s where delivery_man_id = %s", (password, id))
+        db.commit()
+    except mysql.connector.Error as error:
+        print("Failed to update record to database rollback: {}".format(error))
+        db.rollback()
+    else:
+        print("Password changed successfully")
+        
+
+def view_profile(id):
+    try: 
+        cursor.execute("select * from delivery_man where delivery_man_id = %s", (id,))
+        res = cursor.fetchall()
+        print("Delivery Man ID: " + str(res[0][0]))
+        print("Delivery Man Name: " + str(res[0][1]))
+        print("Delivery Man Contact Number: " + str(res[0][2]))
+        print("Delivery Man Email ID: " + str(res[0][3]))
+        cursor.execute("Select count(*) from order_delivery_man where delivery_man_id = %s", (id,))
+        res = cursor.fetchall()
+        print("Number of orders assigned to be delivered: " + str(res[0][0]))
+    except mysql.connector.Error as error:
+        print("There was an error while fetching the data from the database: {}".format(error))
 
 
 def delivery_man_menu(id):
@@ -486,8 +520,9 @@ def delivery_man_menu(id):
     print("1. View orders")
     print("2. View customer details")
     print("3. Change password")
-    print("4. Exit")
-    print("5. Go Back")
+    print("4. View Profile")
+    print("5. Exit")
+    print("6. Go Back")
     choice = int(input("Enter your choice: "))
     if choice == 1:
         view_orders_to_be_delivered(id)
@@ -496,8 +531,10 @@ def delivery_man_menu(id):
     elif choice == 3:
         change_delivery_man_password(id)
     elif choice == 4:
-        exit()
+        view_profile(id)
     elif choice == 5:
+        exit()
+    elif choice == 6:
         starting_menu()
     else:
         print("Invalid choice. Please try again.")

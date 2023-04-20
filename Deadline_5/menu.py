@@ -372,7 +372,7 @@ def delivery_man_details(id):
     return
 
 
-def view_profile(id):
+def view_profile_customer(id):
     cursor.execute("select * from customer where customer_id = %s", (id,))
     res = cursor.fetchall()
     print("Customer ID: " + str(id))
@@ -427,7 +427,7 @@ def customer_menu(id):
     elif choice == 10:
         delivery_man_details(id)
     elif choice == 11:
-        view_profile(id)
+        view_profile_customer(id)
     elif choice == 12: 
         exit()
     elif choice == 13:

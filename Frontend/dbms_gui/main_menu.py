@@ -1,6 +1,6 @@
 import sys
 from PyQt5.QtWidgets import QApplication, QMainWindow, QLabel, QPushButton, QVBoxLayout, QWidget, QStackedWidget
-
+from customer_functions import take_cus_input
 class main_menu(QWidget):
     def __init__(self, parent=None):
         super().__init__(parent)

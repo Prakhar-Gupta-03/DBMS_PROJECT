@@ -170,45 +170,48 @@ def remove_category_func(self):
         #     db.commit()
         print("Category removed successfully")
 
-    # return self.table
+def view_cart(self,customer_id):
+    customer_id = customer_id
+    db = mysql.connector.connect(host="localhost", user="root", passwd="vartika", database="test")
+    cursor = db.cursor()
+    cursor.execute("select product_id, product_quantity from cart where customer_id = %s", (customer_id,))
+    res = cursor.fetchall()
+    self.table = QTableWidget()
+    self.setCentralWidget(self.table)
 
-    # for i in res:
-    #     print("Product_ID: ", i[0])
+    self.table.setRowCount(len(res))
+    self.table.setColumnCount(3)
+    self.table.setHorizontalHeaderLabels(["Product ID", "Product Name", "Product Price", "Product Quantity"])
 
+    print(len(res))
+    print(res)
+    for i in range(0, len(res)):
+        for j in range(0, 4):
+            print(res[i][j])
+            self.table.setItem(i, j, QTableWidgetItem(res[i][j]))
+    return self.table
 
-# view_products(self=None)
-
-# def view_products(self):
-#     cursor = db.cursor()
-#     cursor.execute("SELECT * FROM product")
-#
-#     # Create a standard item model
-#     model = QStandardItemModel()
-#     model.setHorizontalHeaderLabels(
-#         ["Product_ID", "Product_name", "Product_price", "Product_quantity", "Category_ID", "Admin_ID"])
-#
-#     # Add the rows to the model using QStandardItem objects
-#     for row_num, row_data in enumerate(cursor):
-#         for col_num, col_data in enumerate(row_data):
-#             item = QStandardItem(str(col_data))
-#             model.setItem(row_num, col_num, item)
-#
-#     # Create a view and set its model
-#     view = QTableView()
-#     view.setModel(model)
-#     main_window = QMainWindow()
-#     main_window.setCentralWidget(view)
-#     main_window.show()
-#
-#     # Create a back button and connect it to the main window's close event
-#     back_button = QPushButton("Back", main_window)
-#     back_button.move(10, 10)
-#     back_button.clicked.connect(main_window.close)
-#
-#     # Start the main event loop
-#     app = QApplication.instance()
-#     app.exec_()
-#
-#     # Close the cursor and database connection
-#     cursor.close()
-#     db.close()
+def add_to_cart_func(self,id,quantity,customer_id):
+    db = mysql.connector.connect(host="localhost", user="root", passwd="vartika", database="test")
+    cursor = db.cursor()
+    id = id
+    quantity = quantity
+    customer_id = customer_id
+    try:
+        cursor.execute(
+            "INSERT INTO CART(customer_id, product_id, product_quantity) VALUES (%s, %s, %s)",
+            (customer_id, id, quantity))
+        db.commit()
+    except ValueError:
+        print("Invalid input. Please try again.")
+    except mysql.connector.Error as err:
+        print("Error: {}".format(err))
+        text_error = err.msg
+        if (text_error == "Product already exists in cart"):
+            try:
+                cursor.execute(
+                    "UPDATE CART SET product_quantity = product_quantity + %s WHERE customer_id = %s AND product_id = %s",
+                    (quantity, customer_id, id))
+                db.commit()
+            except mysql.connector.Error as err:
+                print("Error: {}".format(err))

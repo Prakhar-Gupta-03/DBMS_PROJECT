@@ -374,6 +374,19 @@ def delivery_man_details(id):
         print(str(current_order_id) + "\t\t\t" + str(res2[0][0]) + "\t\t\t" + str(delivery_date) + "\t\t\t" + str(res2[0][2]) + "\t\t\t" + str(res2[0][1]))
     return
 
+def view_profile(id):
+    cursor.execute("select * from customer where customer_id = %s", (id,))
+    res = cursor.fetchall()
+    print("Customer ID: " + str(id))
+    print("Customer First Name: " + res[0][0])
+    print("Customer Last Name: " + res[0][1])
+    print("Customer Email: " + res[0][2])
+    print("Customer Password: " + res[0][3])
+    print("Customer Wallet Balance: " + str(res[0][4]))
+    print("Customer Address: " + str(res[0][5]) + ", " + res[0][6] + ", " + res[0][7] + ", " + res[0][8] + ", " + res[0][9])
+    print("Customer Contact Number: " + res[0][10])
+
+
 def customer_menu(id):
     print("Hello! Welcome to the customer menu.")
     print("Please select an option from the following:")
@@ -387,8 +400,9 @@ def customer_menu(id):
     print("8. Add wallet balance")
     print("9. Order history")
     print("10. Check the details of the assigned delivery man")
-    print("11. Exit")
-    print("12. Go Back")
+    print("11. View profile")
+    print("12. Exit")
+    print("13. Go Back")
     try: 
         choice = int(input("Enter your choice: "))
     except ValueError:
@@ -415,8 +429,10 @@ def customer_menu(id):
     elif choice == 10:
         delivery_man_details(id)
     elif choice == 11:
+        view_profile(id)
+    elif choice == 12: 
         exit()
-    elif choice == 12:
+    elif choice == 13:
         starting_menu()
     else:
         print("Invalid choice. Please try again.")

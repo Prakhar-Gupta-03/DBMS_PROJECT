@@ -2,18 +2,18 @@ import sys
 from PyQt5.QtWidgets import QApplication, QMainWindow, QLabel, QPushButton, QVBoxLayout, QWidget, QStackedWidget, \
     QLineEdit, QMessageBox
 import functions
-
 class add_to_cart(QWidget):
     def __init__(self, parent=None):
         super().__init__(parent)
         layout = QVBoxLayout(self)
+        self.tci = take_cus_input()
         self.back_button = QPushButton("Back")
         self.back_button.move(50, 200)
         layout.addWidget(self.back_button)
         self.add_to_cart_button = QPushButton("Add to cart")
         self.add_to_cart_button.move(150, 200)
         layout.addWidget(self.add_to_cart_button)
-        self.add_to_cart_button.clicked.connect(self.save_Details)
+        self.add_to_cart_button.clicked.connect(self.save_Details(self.tci.customer_id_savejn ))
         self.quantity_label = QLabel("Quantity")
         self.quantity_label.move(250, 200)
         layout.addWidget(self.quantity_label)
@@ -28,13 +28,14 @@ class add_to_cart(QWidget):
         layout.addWidget(self.id)
 
 
-    def save_Details(self):
+    def save_Details(self,customer_id):
         self.quantity = self.quantity.text()
         self.id = self.id.text()
+        customer_id = customer_id
         if self.quantity == "" or self.id == "":
             self.error = QLabel("Please fill all the fields")
         else:
-            functions.add_to_cart_func(self, self.quantity, self.id)
+            functions.add_to_cart_func(self, self.quantity, self.id,customer_id)
             QMessageBox.information(self, "Success", "Product added to cart successfully")
 
 

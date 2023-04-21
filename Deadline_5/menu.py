@@ -584,10 +584,10 @@ def remove_product():
 
 
 def remove_category():
-    category_name = input("Enter category name: ")
+    category_id = input("Enter category id: ")
     # check if category exists
     cursor.execute(
-        "select category_id from category where category_name = %s", (category_name,))
+        "select category_id from category where category_id = %s", (category_id,))
     res = cursor.fetchall()
     if len(res) == 0:
         print("Error: Category does not exist")
@@ -605,7 +605,7 @@ def remove_category():
                 "delete from product where product_id = %s", (i[0],))
         # remove the category
         cursor.execute(
-            "delete from category where category_name = %s", (category_name,))
+            "delete from category where category_id = %s", (category_id,))
         db.commit()
 
 
@@ -635,7 +635,6 @@ def change_product_quantity():
             db.commit()
         except mysql.connector.Error as err:
             print("Error: {}".format(err.msg))
-
 
 
 def change_admin_password(id):
@@ -695,7 +694,7 @@ def customer_retention_rate(id):
                 count += 1
         print("Number of customers with more than 1 order: ", count)
         print("Total number of unique customers: ", len(res))
-        print("Customer retention rate: ", count/len(res))
+        print("Customer retention rate: ", count/len(res)*100, "%")
     except mysql.connector.Error as err:
         print("Error: {}".format(err.msg))
 
@@ -777,6 +776,7 @@ def top_selling_product_by_category(id):
     except mysql.connector.Error as err:
         print("Error: {}".format(err.msg))
 
+
 def aggregate_sales_by_category_and_date(id):
     try: 
         cursor.execute("select category.category_name, monthname(orders.order_datetime), sum(all_orders.product_quantity * product.product_price) from all_orders join product join orders join category where product.product_ID = all_orders.product_ID and all_orders.order_ID = orders.order_ID and product.Category_ID = category.category_ID group by category.category_name, monthname(orders.order_datetime) order by category.category_name, monthname(orders.order_datetime)")
@@ -841,6 +841,7 @@ def data_statistics(id):
         data_statistics(id)
     data_statistics(id)
         
+
 def admin_menu(id):
     print("Hello! Welcome to the admin menu")
     print("Please select an option from the following:")

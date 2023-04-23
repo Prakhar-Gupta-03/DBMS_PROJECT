@@ -888,4 +888,4 @@ def admin_menu(id):
     admin_menu(id)
 
 
-    starting_menu()
+starting_menu()

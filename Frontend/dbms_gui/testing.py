@@ -76,7 +76,8 @@ class MainWindow(QMainWindow):
         self.take_cus_input.customer_id_button.clicked.connect(lambda: self.stacked_widget.setCurrentWidget(self.customer_menu))
         # functions.view_products(self).back_button.clicked.connect(lambda: self.stacked_widget.setCurrentWidget(self.customer_menu))
         self.customer_menu.add_cart_button.clicked.connect(lambda: self.stacked_widget.setCurrentWidget(self.add_to_cart))
-        self.add_to_cart.add_to_cart_button.clicked.connect(lambda: self.stacked_widget.setCurrentWidget(self.add_to_Cart_details()))
+        # self.add_to_cart.add_to_cart_button.clicked.connect(lambda: self.stacked_widget.setCurrentWidget(self.add_to_Cart_details()))
+        self.add_to_cart.back_button.clicked.connect(lambda: self.stacked_widget.setCurrentWidget(self.customer_menu))
         self.customer_menu.view_cart_button.clicked.connect(lambda: self.stacked_widget.setCurrentWidget(functions.view_cart(self,self.take_cus_input.customer_id_save).show()))
     def main_menu_button(self):
         take_cus_input.forget_customer_id(self)

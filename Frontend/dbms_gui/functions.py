@@ -208,21 +208,35 @@ def view_cart(self,customer_id):
     customer_id = customer_id
     db = mysql.connector.connect(host="localhost", user="root", passwd="vartika", database="test")
     cursor = db.cursor()
-    cursor.execute("select product_id, product_quantity from cart where customer_id = %s", (customer_id,))
+    cursor.execute("select * from cart where customer_id = %s", (customer_id,))
+    # print("1")
     res = cursor.fetchall()
+    print(res)
     self.table = QTableWidget()
-    self.setCentralWidget(self.table)
+    # self.setCentralWidget(self.table)
 
     self.table.setRowCount(len(res))
-    self.table.setColumnCount(3)
-    self.table.setHorizontalHeaderLabels(["Product ID", "Product Name", "Product Price", "Product Quantity"])
+    self.table.setColumnCount(5)
+    self.table.setHorizontalHeaderLabels(["Product ID", "Product Quantity", "Product Price", "Category ID","Product_Name"])
 
-    print(len(res))
-    print(res)
-    for i in range(0, len(res)):
-        for j in range(0, 4):
-            print(res[i][j])
-            self.table.setItem(i, j, QTableWidgetItem(res[i][j]))
+    # # print(len(res))
+    # # print(res)
+    # for i in range(0, len(res)):
+    #     for j in range(0, 4):
+    #         print(res[i][j])
+    #         self.table.setItem(i, j, QTableWidgetItem(res[i][j]))
+
+    for i in range(len(res)):
+        cursor.execute("select * from product where product_id = %s", (res[i][1],))
+        product_name = cursor.fetchall()
+        print(product_name)
+        self.table.setItem(i, 0, QTableWidgetItem(str(res[i][1])))
+        self.table.setItem(i, 1, QTableWidgetItem(str(res[i][2])))
+        self.table.setItem(i, 2, QTableWidgetItem(str(product_name[0][2])))
+        self.table.setItem(i, 3, QTableWidgetItem(str(product_name[0][4])))
+        self.table.setItem(i, 4, QTableWidgetItem(str(product_name[0][1])))
+    #     show the table
+    # self.table.show()
     return self.table
 
 def add_to_cart_func(self,id,quantity,customer_id):
@@ -251,3 +265,4 @@ def add_to_cart_func(self,id,quantity,customer_id):
                 db.commit()
             except mysql.connector.Error as err:
                 print("Error: {}".format(err))
+

@@ -27,7 +27,7 @@ def view_products(self):
     for i in range(0, len(res)):
         for j in range(0, 6):
             print(res[i][j])
-            self.table.setItem(i,j,QTableWidgetItem(res[i][j]))
+            self.table.setItem(i,j,QTableWidgetItem(str(res[i][j])))
 
     self.back_button = QPushButton("Back")
     # place the button at such coordinates that it is visible
@@ -79,7 +79,7 @@ def view_categories(self):
     for i in range(0, len(res)):
         for j in range(0,3):
             print(res[i][j])
-            self.table.setItem(i,j,QTableWidgetItem(res[i][j]))
+            self.table.setItem(i,j,QTableWidgetItem(str(res[i][j])))
     return self.table
 
 

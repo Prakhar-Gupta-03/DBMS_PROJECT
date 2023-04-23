@@ -3,6 +3,7 @@ from PyQt5.QtWidgets import QApplication, QMainWindow, QLabel, QPushButton, QVBo
     QLineEdit, QMessageBox
 import functions
 class add_to_cart(QWidget):
+    print("add to cart")
     def __init__(self, parent=None):
         super().__init__(parent)
         layout = QVBoxLayout(self)
@@ -13,13 +14,12 @@ class add_to_cart(QWidget):
         self.add_to_cart_button = QPushButton("Add to cart")
         self.add_to_cart_button.move(150, 200)
         layout.addWidget(self.add_to_cart_button)
-        self.add_to_cart_button.clicked.connect(self.save_Details(self.tci.customer_id_savejn ))
         self.quantity_label = QLabel("Quantity")
-        self.quantity_label.move(250, 200)
+        self.quantity_label.move(450, 200)
         layout.addWidget(self.quantity_label)
-        self.quantity = QLineEdit()
-        self.quantity.move(350, 200)
-        layout.addWidget(self.quantity)
+        self.quantity_label = QLineEdit()
+        self.quantity_label.move(550, 200)
+        layout.addWidget(self.quantity_label)
         self.id_label = QLabel("ID")
         self.id_label.move(450, 200)
         layout.addWidget(self.id_label)
@@ -29,14 +29,19 @@ class add_to_cart(QWidget):
 
 
     def save_Details(self,customer_id):
-        self.quantity = self.quantity.text()
+        print("save details")
+        print(customer_id)
+        self.quantity = self.quantity_label.text()
         self.id = self.id.text()
+        print(self.quantity_label)
+        print(self.id)
         customer_id = customer_id
         if self.quantity == "" or self.id == "":
             self.error = QLabel("Please fill all the fields")
         else:
             functions.add_to_cart_func(self, self.quantity, self.id,customer_id)
             QMessageBox.information(self, "Success", "Product added to cart successfully")
+        return self.quantity, self.id, customer_id
 
 
 class take_cus_input(QWidget):
@@ -56,8 +61,14 @@ class take_cus_input(QWidget):
     def save_customer_id(self):
         self.customer_id_save = self.customer_id.text()
         QMessageBox.information(self, "Success", "Customer ID saved successfully")
+
+        # return self.customer_id_save
     def forget_customer_id(self):
         self.customer_id = ""
+
+class place_order(QWidget):
+    def __init__(self):
+        
 
 
 

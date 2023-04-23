@@ -1,6 +1,7 @@
+from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QStandardItemModel, QStandardItem
 from PyQt5.QtWidgets import QApplication, QTableView, QPushButton, QMainWindow, QTableWidget, QTableWidgetItem, QLabel, \
-    QLineEdit
+    QLineEdit, QVBoxLayout, QWidget
 import mysql.connector
 # connect to database
 
@@ -8,26 +9,59 @@ import mysql.connector
 
 def exit_application(self):
     QApplication.quit()
-
 def view_products(self):
+    widget = QWidget(self)
+    layout = QVBoxLayout(widget)
     db = mysql.connector.connect(host="localhost", user="root", passwd="vartika", database="test")
     cursor = db.cursor()
     cursor.execute("SELECT * FROM product")
     res = cursor.fetchall()
     self.table = QTableWidget()
-    self.setCentralWidget(self.table)
+    # self.setCentralWidget(self.table)
 
     self.table.setRowCount(len(res))
     self.table.setColumnCount(6)
     self.table.setHorizontalHeaderLabels(["Product_ID", "Product_name", "Product_price", "Product_quantity", "Category_ID", "Admin_ID"])
-
     print(len(res))
     print(res)
     for i in range(0, len(res)):
         for j in range(0, 6):
             print(res[i][j])
             self.table.setItem(i,j,QTableWidgetItem(res[i][j]))
-    return self.table
+
+    self.back_button = QPushButton("Back")
+    # place the button at such coordinates that it is visible
+    # self.back_button.move(500, 50)
+    # self.back_button.clicked.connect(self.customer_menu)
+
+    layout.addWidget(self.table)
+    layout.addWidget(self.back_button)
+    layout.setAlignment(Qt.AlignTop | Qt.AlignRight)
+    self.setCentralWidget(widget)
+
+    return self
+# def go_back(self):
+# #     show customer menu
+#     self.customer_menu()
+# def view_products(self):
+#     layout = QVBoxLayout(self)
+#     db = mysql.connector.connect(host="localhost", user="root", passwd="vartika", database="test")
+#     cursor = db.cursor()
+#     cursor.execute("SELECT * FROM product")
+#     res = cursor.fetchall()
+#     self.table = QTableWidget()
+#     self.setCentralWidget(self.table)
+#
+#     self.table.setRowCount(len(res))
+#     self.table.setColumnCount(6)
+#     self.table.setHorizontalHeaderLabels(["Product_ID", "Product_name", "Product_price", "Product_quantity", "Category_ID", "Admin_ID"])
+#     print(len(res))
+#     print(res)
+#     for i in range(0, len(res)):
+#         for j in range(0, 6):
+#             print(res[i][j])
+#             self.table.setItem(i,j,QTableWidgetItem(res[i][j]))
+#     return self.table
 def view_categories(self):
     db = mysql.connector.connect(host="localhost", user="root", passwd="vartika", database="test")
     cursor = db.cursor()
@@ -192,11 +226,13 @@ def view_cart(self,customer_id):
     return self.table
 
 def add_to_cart_func(self,id,quantity,customer_id):
+    print("3")
     db = mysql.connector.connect(host="localhost", user="root", passwd="vartika", database="test")
     cursor = db.cursor()
     id = id
     quantity = quantity
     customer_id = customer_id
+    print("quantity", quantity)
     try:
         cursor.execute(
             "INSERT INTO CART(customer_id, product_id, product_quantity) VALUES (%s, %s, %s)",

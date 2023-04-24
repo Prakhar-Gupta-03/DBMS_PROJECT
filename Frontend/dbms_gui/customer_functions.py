@@ -210,7 +210,14 @@ class add_money_to_wallet(QWidget):
         except mysql.connector.Error as err:
             print("Error: {}".format(err))
 
-
+class view_profile(QWidget):
+    def __init__(self):
+        super().__init__()
+        layout = QVBoxLayout(self)
+        self.setWindowTitle("View Profile")
+        self.setGeometry(100, 100, 500, 500)
+        db = mysql.connector.connect(host="localhost", user="root", passwd="vartika", database="test")
+        cursor = db.cursor()
 
 
 

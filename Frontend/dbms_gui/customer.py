@@ -48,9 +48,12 @@ class customer(QWidget):
         self.add_money_button = QPushButton("Add money to wallet", self)
         self.add_money_button.move(850, 200)
         layout.addWidget(self.add_money_button)
+        self.view_profile = QPushButton("View Profile", self)
+        self.view_profile.move(950, 200)
+        layout.addWidget(self.view_profile)
 #         create a button " Delivery Status"
         self.del_st_button = QPushButton("Delivery Status", self)
-        self.del_st_button.move(950, 200)
+        self.del_st_button.move(1050, 200)
         layout.addWidget(self.del_st_button)
 #         create a button "Back"
         self.back_button = QPushButton("Back", self)
@@ -58,7 +61,7 @@ class customer(QWidget):
         layout.addWidget(self.back_button)
 #         create a button "Exit"
         self.exit_button = QPushButton("Exit", self)
-        self.exit_button.move(1050, 200)
+        self.exit_button.move(1250, 200)
         layout.addWidget(self.exit_button)
 
     #     button click events:

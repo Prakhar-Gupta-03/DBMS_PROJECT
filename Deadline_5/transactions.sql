@@ -34,7 +34,6 @@ COMMIT;
 -- Customer transaction
 BEGIN;
 INSERT INTO cart(Customer_ID, Product_ID, product_quantity) VALUES (1, 1, 1);
-UPDATE product SET product_quantity = product_quantity - 1 WHERE Product_ID = 1;
 COMMIT;
 
 -- Admin transaction

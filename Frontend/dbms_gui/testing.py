@@ -5,7 +5,7 @@ from customer import customer
 from admin import admin
 from product_functions import add_product, remove_product,change_price,change_quantity,add_category
 import functions
-from customer_functions import add_to_cart, take_cus_input
+from customer_functions import add_to_cart, take_cus_input,place_order,add_money_to_wallet
 import mysql.connector
 
 class MainWindow(QMainWindow):
@@ -28,6 +28,7 @@ class MainWindow(QMainWindow):
         self.change_quantity = change_quantity()
         self.add_category = add_category()
         self.take_cus_input = take_cus_input()
+        self.add_money = add_money_to_wallet()
         # self.functions = functions
         #
         self.add_to_cart = add_to_cart()
@@ -43,6 +44,7 @@ class MainWindow(QMainWindow):
         #
         self.stacked_widget.addWidget(self.add_to_cart)
         self.stacked_widget.addWidget(self.take_cus_input)
+        self.stacked_widget.addWidget(self.add_money)
         # self.stacked_widget.addWidget(self.functions.view_products(self))
 
         # Connect the button signals to the slot that changes the current widget
@@ -77,7 +79,12 @@ class MainWindow(QMainWindow):
         # functions.view_products(self).back_button.clicked.connect(lambda: self.stacked_widget.setCurrentWidget(self.customer_menu))
         self.customer_menu.add_cart_button.clicked.connect(lambda: self.stacked_widget.setCurrentWidget(self.add_to_cart))
         # self.add_to_cart.add_to_cart_button.clicked.connect(lambda: self.stacked_widget.setCurrentWidget(self.add_to_Cart_details()))
+
         self.add_to_cart.back_button.clicked.connect(lambda: self.stacked_widget.setCurrentWidget(self.customer_menu))
+        self.customer_menu.add_money_button.clicked.connect(lambda: self.stacked_widget.setCurrentWidget(self.add_money))
+        self.customer_menu.place_order_button.clicked.connect(lambda: self.stacked_widget.setCurrentWidget(functions.place_order(self,self.take_cus_input.customer_id_save)))
+        self.customer_menu.order_his_button.clicked.connect(lambda: self.stacked_widget.setCurrentWidget(functions.view_order(self,self.take_cus_input.customer_id_save)))
+        self.add_money.back_button.clicked.connect(lambda: self.stacked_widget.setCurrentWidget(self.customer_menu))
         self.customer_menu.view_cart_button.clicked.connect(lambda: self.stacked_widget.setCurrentWidget(functions.view_cart(self,self.take_cus_input.customer_id_save).show()))
     def main_menu_button(self):
         take_cus_input.forget_customer_id(self)

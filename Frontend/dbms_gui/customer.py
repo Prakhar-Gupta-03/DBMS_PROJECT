@@ -35,6 +35,11 @@ class customer(QWidget):
         self.place_order_button = QPushButton("Place Order", self)
         self.place_order_button.move(550, 200)
         layout.addWidget(self.place_order_button)
+
+        # create a button "Order History"
+        self.order_his_button = QPushButton("Order History", self)
+        self.order_his_button.move(650, 200)
+        layout.addWidget(self.order_his_button)
         # create a button "change password"
         self.change_pass_button = QPushButton("Change Password", self)
         self.change_pass_button.move(750, 200)
@@ -43,9 +48,6 @@ class customer(QWidget):
         self.add_money_button = QPushButton("Add money to wallet", self)
         self.add_money_button.move(850, 200)
         layout.addWidget(self.add_money_button)
-        # create a button "Order History"
-        self.order_his_button = QPushButton("Order History", self)
-        self.order_his_button.move(650, 200)
 #         create a button " Delivery Status"
         self.del_st_button = QPushButton("Delivery Status", self)
         self.del_st_button.move(950, 200)
